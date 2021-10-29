@@ -3,5 +3,5 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "Admin Frontend",
   },
-  plugins: ["@chakra-ui/gatsby-plugin"],
+  plugins: ["@chakra-ui/gatsby-plugin", "gatsby-plugin-postcss"],
 };

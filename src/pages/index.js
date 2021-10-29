@@ -1,12 +1,11 @@
 import * as React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 
-// markup
 const IndexPage = () => {
   return (
     <ChakraProvider>
       <main>
-        <h1>Hello</h1>
+        <Heading className="text-4xl font-bold mb-5">Admin frontend!!</Heading>
       </main>
     </ChakraProvider>
   );
