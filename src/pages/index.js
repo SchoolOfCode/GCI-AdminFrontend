@@ -11,12 +11,15 @@ import {
 import HomePage from "../components/HomePage";
 import Applications from "../components/Applications";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "./index.css";
 
 const IndexPage = () => {
   return (
     <ChakraProvider>
       <main>
-        <Heading className="text-4xl font-bold mb-5">Admin frontend!!</Heading>
+        <Header className="bg-gcinavy text-white" />
       </main>
 
       <Tabs
@@ -62,6 +65,7 @@ const IndexPage = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Footer />
     </ChakraProvider>
   );
 };
