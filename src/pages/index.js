@@ -40,11 +40,14 @@ const IndexPage = () => {
             marginBottom: "20px",
           }}
         >
-          <Header />
-          <AmplifySignIn headerText="Sign in to access your SoC application" />
+          <Header text="School of Code Application Admin Portal" />
+          <AmplifySignIn />
         </div>
 
-        <Header className="bg-gcinavy text-white" />
+        <Header
+          text="School of Code Application Admin Portal"
+          className="bg-gcinavy text-white"
+        />
         <Tabs
           className="m-20"
           variant="line"
