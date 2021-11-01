@@ -1,7 +1,13 @@
 import React from "react";
+import Amplify from "aws-amplify";
+// import config from "./aws-exports";
+// import {
+//   AmplifySignOut,
+//   AmplifyAuthenticator,
+//   AmplifySignIn,
+// } from "@aws-amplify/ui-react";
 import {
   ChakraProvider,
-  Heading,
   Tabs,
   TabList,
   TabPanels,
@@ -14,14 +20,31 @@ import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./index.css";
+// Amplify.configure(config);
 
 const IndexPage = () => {
   return (
     <ChakraProvider>
-      <main>
-        <Header className="bg-gcinavy text-white" />
-      </main>
+      {/* <AmplifyAuthenticator>
+        <div
+          className="App"
+          slot="sign-in"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            height: "100vh",
+            width: "100%",
+            backgroundSize: "1800px 1800px",
+            marginBottom: "20px",
+          }}
+        >
+          <Header />
+          <AmplifySignIn headerText="Sign in to access your SoC application" />
+        </div> */}
 
+      <Header className="bg-gcinavy text-white" />
       <Tabs
         className="m-20"
         variant="line"
@@ -51,6 +74,13 @@ const IndexPage = () => {
           >
             <p className="faq">F.A.Q.</p>
           </Tab>
+          <Tab
+            className="border-2 border-white text-white font-semibold"
+            bg="#8896A3"
+            _selected={{ color: "white", bg: "#4A90E2" }}
+          >
+            Sign Out
+          </Tab>
         </TabList>
 
         <TabPanels>
@@ -63,9 +93,11 @@ const IndexPage = () => {
           <TabPanel>
             <FrequentlyAskedQuestions />
           </TabPanel>
+          <TabPanel></TabPanel>
         </TabPanels>
       </Tabs>
       <Footer />
+      {/* </AmplifyAuthenticator> */}
     </ChakraProvider>
   );
 };

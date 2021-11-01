@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gciadminfrontend-dev-122352-authRole",
+      "UnauthRoleArn": "arn:aws:iam::114204261963:role/amplify-gciadminfrontend-dev-122352-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::114204261963:role/amplify-gciadminfrontend-dev-122352-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-gciadminfrontend-dev-122352-deployment",
+      "UnauthRoleName": "amplify-gciadminfrontend-dev-122352-unauthRole",
+      "StackName": "amplify-gciadminfrontend-dev-122352",
+      "StackId": "arn:aws:cloudformation:eu-west-2:114204261963:stack/amplify-gciadminfrontend-dev-122352/9597b090-3b0e-11ec-b036-02ba63f7b85a",
+      "AmplifyAppId": "d1m8uizlermi7c"
+    },
+    "categories": {
+      "auth": {
+        "gciadminfrontenda33bdda3": {}
+      }
+    }
+  }
+}
