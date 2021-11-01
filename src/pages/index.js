@@ -93,7 +93,9 @@ const IndexPage = () => {
             <TabPanel>
               <FrequentlyAskedQuestions />
             </TabPanel>
-            <TabPanel></TabPanel>
+            <TabPanel>
+              <AmplifySignOut buttonText="Log out" />
+            </TabPanel>
           </TabPanels>
         </Tabs>
         <Footer />
