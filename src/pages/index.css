@@ -1,3 +1,11 @@
+amplify-authenticator {
+  background: #000818;
+}
+:root {
+  --amplify-primary-color: #4a90e2;
+  --amplify-primary-tint: #4a90e2;
+  --amplify-primary-shade: #4a90e2;
+}
 html,
 body {
   height: 100%;
