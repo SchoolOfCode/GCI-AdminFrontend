@@ -8,6 +8,9 @@ import {
   Tab,
   TabPanel,
 } from "@chakra-ui/react";
+import HomePage from "../components/HomePage";
+import Applications from "../components/Applications";
+import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 
 const IndexPage = () => {
   return (
@@ -38,18 +41,24 @@ const IndexPage = () => {
           >
             <p className="applications">Applications</p>
           </Tab>
-          <Tab>Three</Tab>
+          <Tab
+            className="border-2 border-white text-white font-semibold"
+            bg="#8896A3"
+            _selected={{ color: "white", bg: "#4A90E2" }}
+          >
+            <p className="faq">F.A.Q.</p>
+          </Tab>
         </TabList>
 
         <TabPanels>
           <TabPanel>
-            <p>one!</p>
+            <HomePage />
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <Applications />
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <FrequentlyAskedQuestions />
           </TabPanel>
         </TabPanels>
       </Tabs>
