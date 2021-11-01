@@ -1,5 +1,13 @@
-import * as React from "react";
-import { ChakraProvider, Heading } from "@chakra-ui/react";
+import React from "react";
+import {
+  ChakraProvider,
+  Heading,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 
 const IndexPage = () => {
   return (
@@ -7,6 +15,44 @@ const IndexPage = () => {
       <main>
         <Heading className="text-4xl font-bold mb-5">Admin frontend!!</Heading>
       </main>
+
+      <Tabs
+        className="m-20"
+        variant="line"
+        align="left"
+        orientation="vertical"
+        isLazy
+      >
+        <TabList>
+          <Tab
+            className="border-2 border-white text-white font-semibold"
+            bg="#8896A3"
+            _selected={{ color: "white", bg: "#4A90E2" }}
+          >
+            <p className="homePage">Home Page</p>
+          </Tab>
+          <Tab
+            className="border-2 border-white text-white font-semibold"
+            bg="#8896A3"
+            _selected={{ color: "white", bg: "#4A90E2" }}
+          >
+            <p className="applications">Applications</p>
+          </Tab>
+          <Tab>Three</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            <p>one!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>two!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>three!</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </ChakraProvider>
   );
 };
