@@ -1,5 +1,10 @@
 import React from "react";
+import FAQ from "../../../../GCI-ClientFrontend/src/components/FAQ";
 
 export default function FrequentlyAskedQuestions() {
-  return <section></section>;
+  return (
+    <section>
+      <FAQ />
+    </section>
+  );
 }
