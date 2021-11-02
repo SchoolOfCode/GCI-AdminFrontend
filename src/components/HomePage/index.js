@@ -1,10 +1,12 @@
 import React from "react";
-import BarChart from "../ApplicationsChart";
+import ApplicationChart from "../ApplicationsChart";
+import StageChart from "../StageChart";
 
 export default function HomePage() {
   return (
     <section>
-      <BarChart />
+      <ApplicationChart />
+      <StageChart />
     </section>
   );
 }
