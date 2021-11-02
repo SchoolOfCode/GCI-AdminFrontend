@@ -33,6 +33,7 @@ const theme = extendTheme({
 
 const IndexPage = () => {
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [currentApplications, setCurrentApplications] = useState({});
 
   //get request to get our users from the DB
@@ -44,9 +45,14 @@ const IndexPage = () => {
       });
   }, [page]);
 
-  console.log(currentApplications);
+  //get request to determine total applications
+  useEffect(() => {
+    axios.get(`https://gci-backend.herokuapp.com/users/`).then((result) => {
+      setTotalPages(result.data.payload.length / 10);
+    });
+  }, [page]);
 
- 
+  console.log(currentApplications);
 
   return (
     <ChakraProvider theme={theme}>
@@ -117,9 +123,8 @@ const IndexPage = () => {
             </TabPanel>
             <TabPanel>
               <Applications
-              currentPage={page}
-              setCurrentPage={setPage}
-                
+                currentPage={page}
+                setCurrentPage={setPage}
                 applications={currentApplications}
               />
             </TabPanel>
