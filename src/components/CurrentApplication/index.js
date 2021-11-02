@@ -1,6 +1,7 @@
 import React from "react";
 import { Heading } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
+import { Text } from "@chakra-ui/layout";
 
 
 export default function CurrentApplication({currentApplication,setCurrentApplication}){
@@ -12,8 +13,14 @@ let questions = ["Accepted bootcamp requirements","First Name","Last Name","Emai
 return <section>
 <MainButton onClick={()=>setCurrentApplication({empty:true})} buttonText="< Back"/>
 <section className="stage1section">
-<Heading>Stage 1 - Applicant information</Heading>
-{ questions.map((value,index)=>  <h2>{value}: {s1[index]}</h2>)}
+<Heading className="mt-5 mb-3">Stage 1 - Applicant information</Heading>
+{ questions.map((value,index)=> <div className="flex flex-row "> <Text fontWeight="semibold" className="mr-2">{value}:</Text> <Text>{`${s1[index]}`}</Text></div>)}
+<Heading className="mt-5">Stage 2 - Pixel Character</Heading>
+<Heading className="text-md font-semibold mb-5">{currentApplication.stage_2.link}</Heading>
+<Heading className="mt-5">Stage 3 - Video</Heading>
+<Heading className="text-md font-semibold mb-5">{currentApplication.stage_3.link}</Heading>
+<Heading className="mt-5">Stage 4 - Scratch Game</Heading>
+<Heading className="text-md font-semibold mb-5">{currentApplication.stage_4.link}</Heading>
 </section>
   
 </section>
