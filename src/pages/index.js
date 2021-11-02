@@ -15,14 +15,13 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import HomePage from "../components/HomePage";
-import UserList from "../components/UserList";
-import UserTable from "../components/UserTable";
+import Applications from "../components/Applications";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { extendTheme } from "@chakra-ui/react";
 import "./index.css";
-const axios = require('axios').default;
+const axios = require("axios").default;
 Amplify.configure(config);
 const theme = extendTheme({
   colors: {
@@ -31,7 +30,6 @@ const theme = extendTheme({
     },
   },
 });
-
 
 const IndexPage = () => {
   const [page, setPage] = useState(1);
@@ -43,13 +41,12 @@ const IndexPage = () => {
       .get(`https://gci-backend.herokuapp.com/users?offset=${page}`)
       .then((result) => {
         setCurrentApplications(result.data.payload);
-        
       });
-  }, []);
+  }, [page]);
 
-  console.log(currentApplications)
+  console.log(currentApplications);
 
-  
+ 
 
   return (
     <ChakraProvider theme={theme}>
@@ -119,7 +116,12 @@ const IndexPage = () => {
               <HomePage />
             </TabPanel>
             <TabPanel>
-              <UserTable applications={currentApplications} />
+              <Applications
+              currentPage={page}
+              setCurrentPage={setPage}
+                
+                applications={currentApplications}
+              />
             </TabPanel>
             <TabPanel>
               <FrequentlyAskedQuestions />

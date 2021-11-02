@@ -8,6 +8,7 @@ export default function MainButton({
   textColor = "white",
   buttonText = "CLICK ME!",
   m = "m-0",
+  size="lg"
 }) {
   return (
     <Button
@@ -15,7 +16,7 @@ export default function MainButton({
       onClick={onClick}
       bg={buttonColor}
       color={textColor}
-      size="lg"
+      size={size}
       _hover={{ bg: "#000818" }}
       _active={{
         transform: "scale(0.75)",

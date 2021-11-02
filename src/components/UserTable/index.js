@@ -20,7 +20,7 @@ import Dropdown from "../Dropdown";
 export default function UserTable({ applications }) {
   return (
     <Table  size ="sm" variant="striped"  fontWeight="semibold">
-      <TableCaption>View applications</TableCaption>
+      
       <Thead>
         <Tr>
           <Th isNumeric>ID</Th>
