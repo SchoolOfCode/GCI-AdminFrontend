@@ -7,10 +7,11 @@ import {
   Th,
   Td,
   TableCaption,
-  Button
+  Button,
 } from "@chakra-ui/react";
 
 import { StarIcon } from "@chakra-ui/icons";
+import MainButton from "../MainButton";
 
 
 import React from "react";
@@ -18,7 +19,7 @@ import Dropdown from "../Dropdown";
 
 export default function UserTable({ applications }) {
   return (
-    <Table variant="striped">
+    <Table  size ="sm" variant="striped"  fontWeight="semibold">
       <TableCaption>View applications</TableCaption>
       <Thead>
         <Tr>
@@ -38,12 +39,25 @@ export default function UserTable({ applications }) {
               <Td isNumeric>{application.id}</Td>
               <Td>{application.first_name}</Td>
               <Td>{application.last_name}</Td>
-              <Td>{application.current_stage}</Td>
+              <Td>Stage: {application.current_stage}</Td>
               <Td>
-                <Dropdown label="" placeholderText="Assignee" first="Chris" second="Liz" />
+                <Dropdown
+                  label=""
+                  placeholderText="Assignee"
+                  first="Chris"
+                  second="Liz"
+                />
               </Td>
-              <Td><StarIcon color="yellow.500"/></Td>
-              <Td><Button>View Application</Button></Td>
+              <Td>
+                {application.interview ? (
+                  <StarIcon color="yellow.500" />
+                ) : (
+                  <StarIcon color="red" />
+                )}
+              </Td>
+              <Td>
+                <MainButton buttonText="View Application"></MainButton>
+              </Td>
             </Tr>
           );
         })}

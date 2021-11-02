@@ -20,9 +20,18 @@ import UserTable from "../components/UserTable";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { extendTheme } from "@chakra-ui/react";
 import "./index.css";
 const axios = require('axios').default;
 Amplify.configure(config);
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#000818",
+    },
+  },
+});
+
 
 const IndexPage = () => {
   const [page, setPage] = useState(1);
@@ -43,7 +52,7 @@ const IndexPage = () => {
   
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <AmplifyAuthenticator>
         <div
           className="App"
