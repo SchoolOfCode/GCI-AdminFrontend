@@ -1,12 +1,12 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
+import { PolarArea } from "react-chartjs-2";
 import { Box } from "@chakra-ui/react";
 
 const data = {
-  labels: ["Stage one", "Stage two", "Stage three", "Stage four", "Interview"],
+  labels: ["Male", "Female", "Non-binary", "Prefer not to say", "Other"],
   datasets: [
     {
-      data: [800, 500, 300, 200, 200],
+      data: [760, 600, 150, 300, 250],
       backgroundColor: [
         "rgba(0, 0, 255, 0.5)",
         "rgba(60, 179, 133, 0.5)",
@@ -38,7 +38,7 @@ const options = {
   },
 };
 
-const StageChart = () => (
+const GenderChart = () => (
   <Box
     bg="rgba(222, 222, 222,0.2)"
     borderWidth="1px"
@@ -47,11 +47,11 @@ const StageChart = () => (
   >
     <div>
       <div className="header">
-        <h1 className="title">Applicant Stage</h1>
+        <h1 className="title">Gender Data</h1>
       </div>
-      <Doughnut data={data} options={options} />
+      <PolarArea data={data} options={options} />
     </div>
   </Box>
 );
 
-export default StageChart;
+export default GenderChart;

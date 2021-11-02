@@ -53,11 +53,11 @@ const ApplicationChart = () => (
     bg="rgba(222, 222, 222,0.2)"
     borderWidth="1px"
     borderRadius="lg"
-    className="max-w-lg text-center font-bold"
+    className="max-w-sm text-center font-bold"
   >
     <div>
       <div className="header">
-        <h1 className="title">Applicant status</h1>
+        <h1 className="title">Applicant Status</h1>
       </div>
       <Bar data={data} options={options} />
     </div>
