@@ -2,25 +2,18 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
-  Button,
 } from "@chakra-ui/react";
-
 import { StarIcon } from "@chakra-ui/icons";
 import MainButton from "../MainButton";
-
-
 import React from "react";
 import Dropdown from "../Dropdown";
 
-export default function UserTable({ applications }) {
+export default function UserTable({ applications, setCurrentApplication }) {
   return (
     <Table  size ="sm" variant="striped"  fontWeight="semibold">
-      
       <Thead>
         <Tr>
           <Th isNumeric>ID</Th>
@@ -56,7 +49,7 @@ export default function UserTable({ applications }) {
                 )}
               </Td>
               <Td>
-                <MainButton buttonText="View Application"></MainButton>
+                <MainButton buttonText="View Application" onClick={()=>{setCurrentApplication(application)}}></MainButton>
               </Td>
             </Tr>
           );
