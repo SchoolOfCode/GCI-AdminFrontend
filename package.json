@@ -23,6 +23,7 @@
     "@emotion/styled": "^11.3.0",
     "add": "^2.0.6",
     "aws-amplify": "^4.3.4",
+    "axios": "^0.24.0",
     "framer-motion": "^4.1.17",
     "gatsby": "^4.0.1",
     "markdown-to-jsx": "^7.1.3",

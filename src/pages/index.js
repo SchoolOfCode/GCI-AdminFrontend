@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Amplify from "aws-amplify";
 import config from "../aws-exports";
 import {
@@ -15,14 +15,33 @@ import {
   TabPanel,
 } from "@chakra-ui/react";
 import HomePage from "../components/HomePage";
-import Applications from "../components/Applications";
+import UserList from "../components/UserList";
+import UserTable from "../components/UserTable";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./index.css";
+const axios = require('axios').default;
 Amplify.configure(config);
 
 const IndexPage = () => {
+  const [page, setPage] = useState(1);
+  const [currentApplications, setCurrentApplications] = useState({});
+
+  //get request to get our users from the DB
+  useEffect(() => {
+    axios
+      .get(`https://gci-backend.herokuapp.com/users?offset=${page}`)
+      .then((result) => {
+        setCurrentApplications(result.data.payload);
+        
+      });
+  }, []);
+
+  console.log(currentApplications)
+
+  
+
   return (
     <ChakraProvider>
       <AmplifyAuthenticator>
@@ -91,7 +110,7 @@ const IndexPage = () => {
               <HomePage />
             </TabPanel>
             <TabPanel>
-              <Applications />
+              <UserTable applications={currentApplications} />
             </TabPanel>
             <TabPanel>
               <FrequentlyAskedQuestions />
