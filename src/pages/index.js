@@ -41,7 +41,7 @@ const IndexPage = () => {
           }}
         >
           <Header text="School of Code Application Admin Portal" />
-          <AmplifySignIn />
+          <AmplifySignIn hideSignUp="true" />
         </div>
 
         <Header
