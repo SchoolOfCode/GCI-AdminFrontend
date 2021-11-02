@@ -1,0 +1,57 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gciadminfrontend-dev-122352-authRole",
+      "UnauthRoleArn": "arn:aws:iam::114204261963:role/amplify-gciadminfrontend-dev-122352-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::114204261963:role/amplify-gciadminfrontend-dev-122352-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-gciadminfrontend-dev-122352-deployment",
+      "UnauthRoleName": "amplify-gciadminfrontend-dev-122352-unauthRole",
+      "StackName": "amplify-gciadminfrontend-dev-122352",
+      "StackId": "arn:aws:cloudformation:eu-west-2:114204261963:stack/amplify-gciadminfrontend-dev-122352/9597b090-3b0e-11ec-b036-02ba63f7b85a",
+      "AmplifyAppId": "d1m8uizlermi7c"
+    }
+  },
+  "auth": {
+    "gciadminfrontenda33bdda3": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "PREFERRED_USERNAME"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-gciadminfrontend-dev-122352-deployment/amplify-cfn-templates/auth/gciadminfrontenda33bdda3-cloudformation-template.yml",
+        "logicalId": "authgciadminfrontenda33bdda3"
+      },
+      "lastPushTimeStamp": "2021-11-01T14:04:47.789Z",
+      "output": {
+        "UserPoolId": "eu-west-2_m3b6CQSQb",
+        "AppClientIDWeb": "2hdd4r46qiosl8sfvnmre7n9is",
+        "AppClientID": "69vng8mv8p5pghd0elf7nc5138",
+        "IdentityPoolId": "eu-west-2:4608bea1-a421-4ed3-82e7-67ac4fa6cb5d",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-2:114204261963:userpool/eu-west-2_m3b6CQSQb",
+        "IdentityPoolName": "gciadminfrontenda33bdda3_identitypool_a33bdda3__dev",
+        "UserPoolName": "gciadminfrontenda33bdda3_userpool_a33bdda3"
+      },
+      "lastPushDirHash": "db9EIRFRI9oALVBj25X66oZSkFs="
+    }
+  }
+}
