@@ -54,7 +54,7 @@ export default function HomePage() {
               <GenderChart />
               <div className="flex flex-row flex-wrap">
                 <Text
-                  fontSize="xl"
+                  fontSize="3xl"
                   fontFamily="fantasy"
                   className="font-bold break-normal ml-40"
                 >
