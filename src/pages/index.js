@@ -19,6 +19,7 @@ import Applications from "../components/Applications";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FilterAndSearch from "../components/FilterAndSearch";
 import { extendTheme } from "@chakra-ui/react";
 import "./index.css";
 const axios = require("axios").default;
@@ -34,7 +35,7 @@ const theme = extendTheme({
 const IndexPage = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [application, setApplication] = useState({empty:true});
+  const [application, setApplication] = useState({ empty: true });
   const [currentApplications, setCurrentApplications] = useState({});
 
   //get request to get our users from the DB
@@ -101,7 +102,7 @@ const IndexPage = () => {
               _selected={{ color: "white", bg: "#4A90E2" }}
             >
               <p className="applications">Applications</p>
-            </Tab> 
+            </Tab>
             <Tab
               className="border-2 border-white text-white font-semibold"
               bg="#8896A3"
@@ -123,6 +124,7 @@ const IndexPage = () => {
               <HomePage />
             </TabPanel>
             <TabPanel>
+              <FilterAndSearch />
               <Applications
                 currentPage={page}
                 setCurrentPage={setPage}
