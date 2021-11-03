@@ -6,14 +6,14 @@ import GenderChart from "../GenderChart";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-shrink-0">
-      <section className="w-96 h-96">
-        <ApplicationChart className="flex-shrink-0" />
-        <StageChart className="flex-shrink-0" />
+    <div className="flex">
+      <section className="flex-initial w-96 h-96">
+        <ApplicationChart />
+        <StageChart />
       </section>
-      <section className="w-96 h-96">
-        <RegionChart className="flex-shrink-0" />
-        <GenderChart className="flex-shrink-0" />
+      <section className="flex-initial w-96 h-96">
+        <RegionChart />
+        <GenderChart />
       </section>
     </div>
   );

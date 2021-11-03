@@ -54,8 +54,6 @@ const IndexPage = () => {
     });
   }, [page]);
 
-  
-
   return (
     <ChakraProvider theme={theme}>
       <AmplifyAuthenticator>
@@ -81,67 +79,69 @@ const IndexPage = () => {
           text="School of Code Application Admin Portal"
           className="bg-gcinavy text-white"
         />
-        <Tabs
-          className="m-20"
-          variant="line"
-          align="left"
-          orientation="vertical"
-          isLazy
-        >
-          <TabList>
-            <Tab
-              className="border-2 border-white text-white font-semibold"
-              bg="#8896A3"
-              _selected={{ color: "white", bg: "#4A90E2" }}
-            >
-              <p className="homePage">Home Page</p>
-            </Tab>
-            <Tab
-              className="border-2 border-white text-white font-semibold"
-              bg="#8896A3"
-              _selected={{ color: "white", bg: "#4A90E2" }}
-            >
-              <p className="applications">Applications</p>
-            </Tab>
-            <Tab
-              className="border-2 border-white text-white font-semibold"
-              bg="#8896A3"
-              _selected={{ color: "white", bg: "#4A90E2" }}
-            >
-              <p className="faq">F.A.Q.</p>
-            </Tab>
-            <Tab
-              className="border-2 border-white text-white font-semibold"
-              bg="#8896A3"
-              _selected={{ color: "white", bg: "#4A90E2" }}
-            >
-              Sign Out
-            </Tab>
-          </TabList>
+        <main className="wrapper">
+          <Tabs
+            className="m-20"
+            variant="line"
+            align="left"
+            orientation="vertical"
+            isLazy
+          >
+            <TabList>
+              <Tab
+                className="border-2 border-white text-white font-semibold"
+                bg="#8896A3"
+                _selected={{ color: "white", bg: "#4A90E2" }}
+              >
+                <p className="homePage">Home Page</p>
+              </Tab>
+              <Tab
+                className="border-2 border-white text-white font-semibold"
+                bg="#8896A3"
+                _selected={{ color: "white", bg: "#4A90E2" }}
+              >
+                <p className="applications">Applications</p>
+              </Tab>
+              <Tab
+                className="border-2 border-white text-white font-semibold"
+                bg="#8896A3"
+                _selected={{ color: "white", bg: "#4A90E2" }}
+              >
+                <p className="faq">F.A.Q.</p>
+              </Tab>
+              <Tab
+                className="border-2 border-white text-white font-semibold"
+                bg="#8896A3"
+                _selected={{ color: "white", bg: "#4A90E2" }}
+              >
+                Sign Out
+              </Tab>
+            </TabList>
 
-          <TabPanels>
-            <TabPanel>
-              <HomePage />
-            </TabPanel>
-            <TabPanel>
-              <FilterAndSearch />
-              <Applications
-                currentPage={page}
-                setCurrentPage={setPage}
-                applications={currentApplications}
-                currentTotalPages={totalPages}
-                setCurrentApplication={setApplication}
-                currentApplication={application}
-              />
-            </TabPanel>
-            <TabPanel>
-              <FrequentlyAskedQuestions />
-            </TabPanel>
-            <TabPanel>
-              <AmplifySignOut buttonText="Log out" />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+            <TabPanels>
+              <TabPanel>
+                <HomePage />
+              </TabPanel>
+              <TabPanel>
+                <FilterAndSearch />
+                <Applications
+                  currentPage={page}
+                  setCurrentPage={setPage}
+                  applications={currentApplications}
+                  currentTotalPages={totalPages}
+                  setCurrentApplication={setApplication}
+                  currentApplication={application}
+                />
+              </TabPanel>
+              <TabPanel>
+                <FrequentlyAskedQuestions />
+              </TabPanel>
+              <TabPanel>
+                <AmplifySignOut buttonText="Log out" />
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </main>
         <Footer />
       </AmplifyAuthenticator>
     </ChakraProvider>
