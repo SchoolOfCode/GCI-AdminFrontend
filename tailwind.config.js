@@ -8,6 +8,11 @@ module.exports = {
       colors: {
         gcinavy: "#000818",
       },
+      spacing: {
+        half: "50%",
+
+        twoq: "75%",
+      },
     },
   },
   variants: {
