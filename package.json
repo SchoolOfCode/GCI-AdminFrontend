@@ -25,6 +25,7 @@
     "autoprefixer": "^10.4.0",
     "aws-amplify": "^4.3.4",
     "chart.js": "^3.6.0",
+    "axios": "^0.24.0",
     "framer-motion": "^4.1.17",
     "gatsby": "^4.0.1",
     "gatsby-plugin-postcss": "^5.0.0",
