@@ -30,7 +30,9 @@
     "marked": "^3.0.8",
     "react": "^17.0.1",
     "react-calendly": "^2.2.2",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-simple-star-rating": "^3.0.0",
+    "react-star-rating-component": "^1.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
