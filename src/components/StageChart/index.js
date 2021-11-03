@@ -40,14 +40,14 @@ const options = {
 
 const StageChart = () => (
   <Box
-    bg="rgba(222, 222, 222,0.2)"
+    bg="white"
     borderWidth="1px"
     borderRadius="lg"
-    className="max-w-sm text-center font-bold"
+    className="m-5 border-4 p-6 text-center  font-bold"
   >
     <div>
       <div className="header">
-        <h1 className="title">Applicant Stage</h1>
+        <h1 className="title m-4 text-3xl">Applicant Stage</h1>
       </div>
       <Doughnut data={data} options={options} />
     </div>

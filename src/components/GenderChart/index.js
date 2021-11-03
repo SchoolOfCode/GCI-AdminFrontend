@@ -1,5 +1,5 @@
 import React from "react";
-import { PolarArea } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Box } from "@chakra-ui/react";
 
 const data = {
@@ -40,16 +40,16 @@ const options = {
 
 const GenderChart = () => (
   <Box
-    bg="rgba(222, 222, 222,0.2)"
+    bg="white"
     borderWidth="1px"
     borderRadius="lg"
-    className="max-w-sm text-center font-bold"
+    className="m-5 border-4 p-6 text-center font-bold"
   >
     <div>
       <div className="header">
-        <h1 className="title">Gender Data</h1>
+        <h1 className="title m-4 text-3xl">Gender Data</h1>
       </div>
-      <PolarArea data={data} options={options} />
+      <Doughnut data={data} options={options} />
     </div>
   </Box>
 );
