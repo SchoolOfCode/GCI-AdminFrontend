@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {useWindowSize} from "../../hooks/useWindowSize";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../functions/detectMob";
 
 export default function VideoPlayer(video) {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 
   //   // for mobile interface usage
   const [width, height] = useWindowSize();
@@ -22,13 +22,15 @@ export default function VideoPlayer(video) {
   useEffect(() => {
     function getId(url) {
       // function you can use:
-
-      return url.split("=")[1];
+      console.log("new id", url.split("=", 8)[1].slice(0, -1));
+      let answer = url.split("=", 8)[1].slice(0, -1);
+      return answer
     }
 
-    const link = getId("https://www.youtube.com/watch?v=7RE2z1yEymU");
+    const link = getId(video.video);
+
     setUrl(`https://www.youtube.com/embed/${link}`);
-  }, []);
+  }, [url]);
 
   return (
     <iframe

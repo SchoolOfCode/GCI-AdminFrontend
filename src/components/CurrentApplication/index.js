@@ -4,6 +4,7 @@ import MainButton from "../MainButton";
 import { Text } from "@chakra-ui/layout";
 import { Rating } from "react-simple-star-rating";
 import VideoPlayer from "../VideoPlayer";
+const axios = require("axios");
 
 export default function CurrentApplication({
   currentApplication,
@@ -36,6 +37,33 @@ export default function CurrentApplication({
     setRating4(rate);
     setTotalScore(rating1 + rating2 + rating3 + rate);
     setAverageScore((rating1 + rating2 + rating3 + rate) / 4);
+  }
+
+  function setInterview() {
+    axios
+      .patch(
+        `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=current_stage`,
+        { stage: 6 }
+      )
+      .then(
+        axios.patch(
+          `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
+          { interview: {interview: true} }
+        )
+      );
+  }
+  function setFinal() {
+    axios
+      .patch(
+        `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=current_stage`,
+        { stage: 7}
+      )
+      .then(
+        axios.patch(
+          `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=final`,
+          { final: {final: true} }
+        )
+      );
   }
 
   // function to update interview stage
@@ -75,6 +103,7 @@ export default function CurrentApplication({
     "Reason for joining School of Code",
     "Found about School of Code via",
   ];
+
   return (
     <section>
       <MainButton
@@ -100,7 +129,7 @@ export default function CurrentApplication({
         <Rating onClick={handleRating2} ratingValue={rating2} />
 
         <Heading className="mt-5">Stage 3 - Video</Heading>
-        <VideoPlayer video={currentApplication.stage_3.link}/>
+        <VideoPlayer video={currentApplication.stage_3.link} />
         <Heading className="text-md font-semibold mb-5">
           {currentApplication.stage_3.link}
         </Heading>
@@ -113,6 +142,25 @@ export default function CurrentApplication({
         <Rating onClick={handleRating4} ratingValue={rating4} />
         <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
         <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
+        <section className="flex flex-row align-items-center">
+          <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
+          <MainButton
+            buttonText="Invite to Interview"
+            buttonColor="green"
+            m="m-3"
+            onClick={setInterview}
+          />
+        </section>
+        <Heading className="mt-2">AFTER INTERVIEW</Heading>
+        <section className="flex flex-row align-items-center">
+          <MainButton buttonText="Get Wrekt" buttonColor="red" m="m-3" />
+          <MainButton
+            buttonText="Invite to Bootcamp :)"
+            buttonColor="green"
+            m="m-3"
+            onClick={setFinal}
+          />
+        </section>
       </section>
     </section>
   );
