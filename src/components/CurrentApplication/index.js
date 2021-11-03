@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Heading } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Text } from "@chakra-ui/layout";
-import { Rating, RatingView } from "react-simple-star-rating";
+import { Rating } from "react-simple-star-rating";
+import VideoPlayer from "../VideoPlayer";
 
 export default function CurrentApplication({
   currentApplication,
   setCurrentApplication,
 }) {
-  const [rating1, setRating1] = useState(0);
-  const [rating2, setRating2] = useState(0);
-  const [rating3, setRating3] = useState(0);
-  const [rating4, setRating4] = useState(0);
+  const [rating1, setRating1] = useState(1);
+  const [rating2, setRating2] = useState(1);
+  const [rating3, setRating3] = useState(1);
+  const [rating4, setRating4] = useState(1);
+  const [totalScore, setTotalScore] = useState(4);
+  const [averageScore, setAverageScore] = useState(1);
 
   function handleRating1(rate) {
     setRating1(rate);
+    setTotalScore(rate + rating2 + rating3 + rating4);
+
+    setAverageScore((rate + rating2 + rating3 + rating4) / 4);
   }
   function handleRating2(rate) {
     setRating2(rate);
+    setTotalScore(rating1 + rate + rating3 + rating4);
+    setAverageScore((rating1 + rate + rating3 + rating4) / 4);
   }
   function handleRating3(rate) {
     setRating3(rate);
+    setTotalScore(rating1 + rating2 + rate + rating4);
+    setAverageScore((rating1 + rating2 + rate + rating4) / 4);
   }
   function handleRating4(rate) {
     setRating4(rate);
+    setTotalScore(rating1 + rating2 + rating3 + rate);
+    setAverageScore((rating1 + rating2 + rating3 + rate) / 4);
   }
-
-  console.log("scores", rating1, rating2, rating3, rating4)
 
   // function to update interview stage
   // function to update final stage
@@ -90,6 +100,7 @@ export default function CurrentApplication({
         <Rating onClick={handleRating2} ratingValue={rating2} />
 
         <Heading className="mt-5">Stage 3 - Video</Heading>
+        <VideoPlayer video={currentApplication.stage_3.link}/>
         <Heading className="text-md font-semibold mb-5">
           {currentApplication.stage_3.link}
         </Heading>
@@ -100,6 +111,8 @@ export default function CurrentApplication({
           {currentApplication.stage_4.link}
         </Heading>
         <Rating onClick={handleRating4} ratingValue={rating4} />
+        <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
+        <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
       </section>
     </section>
   );
