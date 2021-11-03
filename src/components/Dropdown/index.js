@@ -13,6 +13,8 @@ export default function Dropdown({
   forth = "",
   fifth = "",
   sixth = "",
+  p = "2",
+  m = "m-0",
 }) {
   //state to hold the value
   const [option, setOption] = useState("");
@@ -33,13 +35,11 @@ export default function Dropdown({
   return (
     <FormControl>
       <Select
-        p="2"
-        m="2"
         width="50%"
         variant="filled"
         placeholder={placeholderText}
         onChange={handleSelect}
-        className={role}
+        className={role + " " + m}
         value={option}
       >
         {list.map((i) => {

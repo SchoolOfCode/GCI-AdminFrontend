@@ -7,10 +7,10 @@ import { Text } from "@chakra-ui/react";
 export default function FilterAndSearch() {
   return (
     <div>
-      <section className="flex">
+      <section className="flex flex-row">
         <Text>Filter by</Text>
         <Dropdown
-          className="w-max-md"
+          role="filterByStage"
           placeholderText="Stage"
           first="stage 1"
           second="stage 2"
@@ -18,7 +18,11 @@ export default function FilterAndSearch() {
           forth="stage 4"
           fifth="Interview"
         />
-        <Dropdown placeholderText="Date" />
+        <Dropdown
+          placeholderText="Date"
+          first="ascending"
+          second="descending"
+        />
         <Dropdown
           placeholderText="Region"
           first="North West"
@@ -40,6 +44,7 @@ export default function FilterAndSearch() {
       </section>
       <section className="flex">
         <GenericInput
+          className="w-1/4"
           size="sm"
           label="Search by"
           placeholderText="ID, E-mail"
