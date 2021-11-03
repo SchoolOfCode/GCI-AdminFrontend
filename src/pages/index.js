@@ -19,6 +19,7 @@ import Applications from "../components/Applications";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FilterAndSearch from "../components/FilterAndSearch";
 import { extendTheme } from "@chakra-ui/react";
 import "./index.css";
 const axios = require("axios").default;
@@ -123,6 +124,7 @@ const IndexPage = () => {
               <HomePage />
             </TabPanel>
             <TabPanel>
+              <FilterAndSearch />
               <Applications
                 currentPage={page}
                 setCurrentPage={setPage}
