@@ -42,14 +42,12 @@ export default function FilterAndSearch() {
         <Dropdown placeholderText="Interview" first="Yes" second="No" />
         <Dropdown placeholderText="Shortlisted" first="Yes" second="No" />
       </section>
-      <section className="flex">
-        <GenericInput
-          className="w-1/4"
-          size="sm"
-          label="Search by"
-          placeholderText="ID, E-mail"
-        />
-        <MainButton buttonText="Search" size="sm" />
+      <section>
+        <div className="grid grid-flow-row">
+          <Text>Search by</Text>
+          <GenericInput placeholderText="ID, E-mail" />
+          <MainButton buttonText="Search" size="sm" />
+        </div>
       </section>
     </div>
   );

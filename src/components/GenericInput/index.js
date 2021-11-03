@@ -6,11 +6,9 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 //takes in the label for the input as a prop. This can be just a label or a question to the user
 
 export default function GenericInput({
-  label,
   role,
   placeholderText = "Please type your answer here...",
   m = "m-0",
-  isRequired = true,
 }) {
   //state to hold the value
   const [text, setText] = useState("");
@@ -23,7 +21,6 @@ export default function GenericInput({
   // for mobile interface usage
   const [width, height] = useWindowSize();
   const [widthBox, setWidthBox] = useState("40%");
-  let isMobile = false;
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
       setWidthBox("100%");
@@ -34,8 +31,7 @@ export default function GenericInput({
   }, [width]);
 
   return (
-    <FormControl isRequired={isRequired} className={m}>
-      <FormLabel>{label}</FormLabel>
+    <FormControl className={m}>
       <Input
         type="text"
         placeholder={placeholderText}

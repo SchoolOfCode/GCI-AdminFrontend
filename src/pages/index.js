@@ -54,7 +54,7 @@ const IndexPage = () => {
     });
   }, [page]);
 
-  console.log(currentApplications);
+  
 
   return (
     <ChakraProvider theme={theme}>
