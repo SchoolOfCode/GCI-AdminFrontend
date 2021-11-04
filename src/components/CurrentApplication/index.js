@@ -14,8 +14,22 @@ export default function CurrentApplication({
   const [rating2, setRating2] = useState(1);
   const [rating3, setRating3] = useState(1);
   const [rating4, setRating4] = useState(1);
+  const [stage2, setStage2] = useState("");
+  const [stage3, setStage3] = useState("");
+  const [stage4, setStage4] = useState("");
   const [totalScore, setTotalScore] = useState(4);
   const [averageScore, setAverageScore] = useState(1);
+  useEffect(() => {
+    if (currentApplication.stage_2) {
+      setStage2(currentApplication.stage_2.link);
+    }
+    if (currentApplication.stage_3) {
+      setStage3(currentApplication.stage_3.link);
+    }
+    if (currentApplication.stage_4) {
+      setStage4(currentApplication.stage_4.link);
+    }
+  }, [stage2, stage3, stage4]);
 
   function handleRating1(rate) {
     setRating1(rate);
@@ -123,22 +137,16 @@ export default function CurrentApplication({
         ))}
         <Rating onClick={handleRating1} ratingValue={rating1} />
         <Heading className="mt-5">Stage 2 - Pixel Character</Heading>
-        <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_2.link && <div></div>}
-        </Heading>
+        <Heading className="text-md font-semibold mb-5">{stage2}</Heading>
         <Rating onClick={handleRating2} ratingValue={rating2} />
 
         <Heading className="mt-5">Stage 3 - Video</Heading>
-        <VideoPlayer video={(currentApplication.stage_3.link = "")} />
-        <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_3.link && <div></div>}
-        </Heading>
+        <VideoPlayer video={stage3} />
+        <Heading className="text-md font-semibold mb-5">{stage3}</Heading>
         <Rating onClick={handleRating3} ratingValue={rating3} />
 
         <Heading className="mt-5">Stage 4 - Scratch Game</Heading>
-        <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_4.link && <div></div>}
-        </Heading>
+        <Heading className="text-md font-semibold mb-5">{stage4}</Heading>
         <Rating onClick={handleRating4} ratingValue={rating4} />
         <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
         <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
