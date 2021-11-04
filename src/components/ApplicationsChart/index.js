@@ -20,11 +20,9 @@ export default function ApplicationsChart() {
           setData2(data2 + 1);
         } else if (item.current_stage === 7 && item.final.final === false) {
           setData4(data4 + 1);
-        } else if (item.current_stage < 7){
-          setData3(data3+1);
         }
       });
-      
+
       console.log("new arrays", data1, data2, data3, data4);
       setLoading(false);
     });
@@ -49,7 +47,7 @@ export default function ApplicationsChart() {
       },
       {
         label: "Pending",
-        data: [data3],
+        data: [data1 - (data2 + data4)],
         backgroundColor: ["rgba(255, 206, 86, 0.5)"],
         borderColor: ["rgba(255, 206, 86, 1)"],
         borderWidth: 1,
