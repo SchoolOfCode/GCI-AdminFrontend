@@ -60,7 +60,7 @@ const IndexPage = () => {
       setContentAlignment("left");
     }
   }, [width]);
-  //
+
   //get request to get our users from the DB
   useEffect(() => {
     axios
