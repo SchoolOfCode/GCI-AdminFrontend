@@ -21,6 +21,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FilterAndSearch from "../components/FilterAndSearch";
 import { extendTheme } from "@chakra-ui/react";
+import { detectMob } from "../functions/detectMob/index";
+import { useWindowSize } from "../hooks/useWindowSize/index";
 import "./index.css";
 const axios = require("axios").default;
 Amplify.configure(config);
@@ -37,6 +39,20 @@ const IndexPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [application, setApplication] = useState({ empty: true });
   const [currentApplications, setCurrentApplications] = useState({});
+  const [width, height] = useWindowSize();
+  const [menuAlignment, setMenuAlignment] = useState("vertical");
+  const [contentAlignment, setContentAlignment] = useState("left");
+  // for mobile interface usage
+  useEffect(() => {
+    if (width <= 1080 || detectMob()) {
+      setMenuAlignment("horizontal");
+      setContentAlignment("center");
+    }
+    if (width > 1080) {
+      setMenuAlignment("vertical");
+      setContentAlignment("left");
+    }
+  }, [width]);
 
   //get request to get our users from the DB
   useEffect(() => {
@@ -83,8 +99,8 @@ const IndexPage = () => {
           <Tabs
             className="m-20"
             variant="line"
-            align="left"
-            orientation="vertical"
+            align={contentAlignment}
+            orientation={menuAlignment}
             isLazy
           >
             <TabList>
