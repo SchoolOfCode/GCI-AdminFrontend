@@ -22,9 +22,11 @@ export default function VideoPlayer(video) {
   useEffect(() => {
     function getId(url) {
       // function you can use:
-      console.log("new id", url.split("=", 8)[1].slice(0, -1));
-      let answer = url.split("=", 8)[1].slice(0, -1);
-      return answer;
+      // console.log("new id", url.split("=", 8)[1].slice(0, -1));
+      if (url.includes("=")) {
+        let answer = url.split("=", 8)[1].slice(0, -1);
+        return answer;
+      } else return "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     }
 
     const link = getId(video.video);
