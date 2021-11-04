@@ -129,7 +129,7 @@ export default function CurrentApplication({
         <Rating onClick={handleRating2} ratingValue={rating2} />
 
         <Heading className="mt-5">Stage 3 - Video</Heading>
-        <VideoPlayer video={currentApplication.stage_3.link} />
+        <VideoPlayer video={(currentApplication.stage_3.link = "")} />
         <Heading className="text-md font-semibold mb-5">
           {currentApplication.stage_3.link && <div></div>}
         </Heading>
