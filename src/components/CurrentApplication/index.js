@@ -48,7 +48,7 @@ export default function CurrentApplication({
       .then(
         axios.patch(
           `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
-          { interview: {interview: true} }
+          { interview: { interview: true } }
         )
       );
   }
@@ -56,12 +56,12 @@ export default function CurrentApplication({
     axios
       .patch(
         `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=current_stage`,
-        { stage: 7}
+        { stage: 7 }
       )
       .then(
         axios.patch(
           `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=final`,
-          { final: {final: true} }
+          { final: { final: true } }
         )
       );
   }
@@ -124,20 +124,20 @@ export default function CurrentApplication({
         <Rating onClick={handleRating1} ratingValue={rating1} />
         <Heading className="mt-5">Stage 2 - Pixel Character</Heading>
         <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_2.link}
+          {currentApplication.stage_2.link && <div></div>}
         </Heading>
         <Rating onClick={handleRating2} ratingValue={rating2} />
 
         <Heading className="mt-5">Stage 3 - Video</Heading>
         <VideoPlayer video={currentApplication.stage_3.link} />
         <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_3.link}
+          {currentApplication.stage_3.link && <div></div>}
         </Heading>
         <Rating onClick={handleRating3} ratingValue={rating3} />
 
         <Heading className="mt-5">Stage 4 - Scratch Game</Heading>
         <Heading className="text-md font-semibold mb-5">
-          {currentApplication.stage_4.link}
+          {currentApplication.stage_4.link && <div></div>}
         </Heading>
         <Rating onClick={handleRating4} ratingValue={rating4} />
         <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
