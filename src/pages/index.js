@@ -21,8 +21,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FilterAndSearch from "../components/FilterAndSearch";
 import { extendTheme } from "@chakra-ui/react";
-import { detectMob } from "../functions/detectMob/index"
-import { useWindowSize } from "../../../GCI-ClientFrontend/src/hooks/useWindowSize";
+import { detectMob } from "../functions/detectMob/index";
+import { useWindowSize } from "../hooks/useWindowSize/index";
 import "./index.css";
 const axios = require("axios").default;
 Amplify.configure(config);
