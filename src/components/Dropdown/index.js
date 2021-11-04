@@ -7,14 +7,15 @@ import { Select, FormControl, FormLabel } from "@chakra-ui/react";
 export default function Dropdown({
   role,
   placeholderText = "select option",
-  first = "Option 1",
+  first = "",
   second = "",
   third = "",
   forth = "",
   fifth = "",
   sixth = "",
-  p = "2",
   m = "m-0",
+  nowUpdated,
+  setNowUpdated,
 }) {
   //state to hold the value
   const [option, setOption] = useState("");
@@ -22,6 +23,7 @@ export default function Dropdown({
   //function to capture the selected value
   const handleSelect = (e) => {
     setOption(e.target.value);
+    setNowUpdated(nowUpdated + 1);
   };
 
   let array = [first, second, third, forth, fifth, sixth];

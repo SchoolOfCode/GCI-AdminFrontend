@@ -9,6 +9,8 @@ export default function GenericInput({
   role,
   placeholderText = "Please type your answer here...",
   m = "m-0",
+  nowUpdated,
+  setNowUpdated,
 }) {
   //state to hold the value
   const [text, setText] = useState("");
@@ -16,6 +18,7 @@ export default function GenericInput({
   //function to capture the selected value
   const handleChange = (e) => {
     setText(e.target.value);
+    setNowUpdated(nowUpdated + 1);
   };
 
   // for mobile interface usage

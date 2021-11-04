@@ -3,6 +3,7 @@ import UserTable from "../UserTable";
 import MainButton from "../MainButton";
 import { Box } from "@chakra-ui/layout";
 import CurrentApplication from "../CurrentApplication";
+import FilterAndSearch from "../FilterAndSearch";
 
 export default function Applications({
   applications,
@@ -12,11 +13,29 @@ export default function Applications({
   setCurrentApplication,
   currentApplication,
   totalCurrentPage,
+  setCurrentStageFilter,
+  setCurrentDateFilter,
+  setCurrentRegionFilter,
+  setCurrentAssigneeFilter,
+  setCurrentStatusFilter,
+  setCurrentInterviewFilter,
+  setCurrentShortlistedFilter,
+  setCurrentSearchFilter,
 }) {
   return (
     <section>
       {currentApplication.empty && (
         <Box border>
+          <FilterAndSearch
+            setCurrentStageFilter={setCurrentStageFilter}
+            setCurrentDateFilter={setCurrentDateFilter}
+            setCurrentRegionFilter={setCurrentRegionFilter}
+            setCurrentAssigneeFilter={setCurrentAssigneeFilter}
+            setCurrentStatusFilter={setCurrentStatusFilter}
+            setCurrentInterviewFilter={setCurrentInterviewFilter}
+            setCurrentShortlistedFilter={setCurrentShortlistedFilter}
+            setCurrentSearchFilter={setCurrentSearchFilter}
+          />
           <UserTable
             applications={applications}
             setCurrentApplication={setCurrentApplication}

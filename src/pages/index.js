@@ -19,7 +19,6 @@ import Applications from "../components/Applications";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import FilterAndSearch from "../components/FilterAndSearch";
 import { extendTheme } from "@chakra-ui/react";
 import { detectMob } from "../functions/detectMob/index";
 import { useWindowSize } from "../hooks/useWindowSize/index";
@@ -42,6 +41,14 @@ const IndexPage = () => {
   const [width, height] = useWindowSize();
   const [menuAlignment, setMenuAlignment] = useState("vertical");
   const [contentAlignment, setContentAlignment] = useState("left");
+  const [stageFilter, setStageFilter] = useState("none");
+  const [dateFilter, setDateFilter] = useState("DESC");
+  const [regionFilter, setRegionFilter] = useState("none");
+  const [assigneeFilter, setAssigneeFilter] = useState("none");
+  const [statusFilter, setStatusFilter] = useState("none");
+  const [interviewFilter, setInterviewFilter] = useState("none");
+  const [shortlistedFilter, setShortlistedFilter] = useState("none");
+  const [searchFilter, setSearchFilter] = useState("");
   // for mobile interface usage
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
@@ -57,11 +64,23 @@ const IndexPage = () => {
   //get request to get our users from the DB
   useEffect(() => {
     axios
-      .get(`https://gci-backend.herokuapp.com/users?offset=${page}`)
+      .get(
+        `https://gci-backend.herokuapp.com/users?offset=${page}&stage=${stageFilter}&date=${dateFilter}&region=${regionFilter}&assignee=${assigneeFilter}&status=${statusFilter}&interview=${interviewFilter}&shortlisted=${shortlistedFilter}&search=${searchFilter}&`
+      )
       .then((result) => {
         setCurrentApplications(result.data.payload);
       });
-  }, [page]);
+  }, [
+    page,
+    stageFilter,
+    dateFilter,
+    regionFilter,
+    assigneeFilter,
+    statusFilter,
+    interviewFilter,
+    shortlistedFilter,
+    searchFilter,
+  ]);
 
   //get request to determine total applications
   useEffect(() => {
@@ -139,7 +158,6 @@ const IndexPage = () => {
                 <HomePage />
               </TabPanel>
               <TabPanel>
-                <FilterAndSearch />
                 <Applications
                   currentPage={page}
                   setCurrentPage={setPage}
@@ -147,6 +165,14 @@ const IndexPage = () => {
                   currentTotalPages={totalPages}
                   setCurrentApplication={setApplication}
                   currentApplication={application}
+                  setCurrentStageFilter={setStageFilter}
+                  setCurrentDateFilter={setDateFilter}
+                  setCurrentRegionFilter={setRegionFilter}
+                  setCurrentAssigneeFilter={setAssigneeFilter}
+                  setCurrentStatusFilter={setStatusFilter}
+                  setCurrentInterviewFilter={setInterviewFilter}
+                  setCurrentShortlistedFilter={setShortlistedFilter}
+                  setCurrentSearchFilter={setSearchFilter}
                 />
               </TabPanel>
               <TabPanel>
