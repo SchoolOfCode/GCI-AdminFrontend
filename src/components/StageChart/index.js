@@ -31,7 +31,6 @@ export default function StageChart() {
             return (stages[6] += 1);
           }
         });
-        console.log("stages now", stages);
         setArray(stages);
         setLoading(false);
       });
