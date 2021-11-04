@@ -12,7 +12,6 @@ export default function StageChart() {
   useEffect(() => {
     axios
       .get(`https://gci-backend.herokuapp.com/users/`)
-
       .then((response) => {
         response.data.payload.forEach((item) => {
           if (item.current_stage === 1) {

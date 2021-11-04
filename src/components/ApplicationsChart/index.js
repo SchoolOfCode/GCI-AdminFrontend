@@ -6,58 +6,57 @@ const axios = require("axios").default;
 
 export default function ApplicationsChart() {
   const [isLoading, setLoading] = useState(true);
-  const [array, setArray] = useState([0, 0, 0, 0]);
-  let applications = [0, 0, 0, 0];
+  const [data1, setData1] = useState(0);
+  const [data2, setData2] = useState(0);
+  const [data3, setData3] = useState(0);
+  const [data4, setData4] = useState(0);
 
   useEffect(() => {
-    axios
-      .get(`https://gci-backend.herokuapp.com/users/`)
-
-      .then((response) => {
-        applications[0] = response.data.payload.length;
-        response.data.payload.forEach((item) => {
-          if (item.final === true) {
-            return (applications[1] += 1);
-          } else if (item.final === false) {
-            return (applications[3] += 1);
-          } else if (item.final === null) {
-            return (applications[2] += 1);
-          }
-        });
-        console.log("applications", applications);
-        setArray(applications);
-        console.log("array", array);
-        setLoading(false);
+    axios.get(`https://gci-backend.herokuapp.com/users/`).then((response) => {
+      console.log("this should be true, false or null", response.data.payload);
+      setData1(response.data.payload.length);
+      response.data.payload.forEach((item) => {
+        if (item.current_stage === 7 && item.final.final === true) {
+          setData2(data2 + 1);
+        } else if (item.current_stage === 7 && item.final.final === false) {
+          setData4(data4 + 1);
+        } else if (item.current_stage < 7){
+          setData3(data3+1);
+        }
       });
-  }, []);
+      
+      console.log("new arrays", data1, data2, data3, data4);
+      setLoading(false);
+    });
+  }, [isLoading]);
 
   let data = {
     labels: ["Number of Applicants"],
     datasets: [
       {
         label: "Total Applicants",
-        data: applications[0],
+        data: [data1],
         backgroundColor: ["rgba(0, 0, 255, 0.5)"],
         borderColor: ["rgba(0, 0, 255, 1)"],
         borderWidth: 1,
       },
       {
         label: "Accepted",
-        data: applications[1],
+        data: [data2],
         backgroundColor: ["rgba(60, 179, 133, 0.5)"],
         borderColor: ["rgba(60, 179, 133, 1)"],
         borderWidth: 1,
       },
       {
         label: "Pending",
-        data: applications[2],
+        data: [data3],
         backgroundColor: ["rgba(255, 206, 86, 0.5)"],
         borderColor: ["rgba(255, 206, 86, 1)"],
         borderWidth: 1,
       },
       {
         label: "Rejected",
-        data: applications[3],
+        data: [data4],
         backgroundColor: ["rgba(255, 0, 0, 0.5)"],
         borderColor: ["rgba(255, 0, 0, 1)"],
         borderWidth: 1,
