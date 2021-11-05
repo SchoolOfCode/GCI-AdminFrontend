@@ -40,10 +40,10 @@ export default function FilterAndSearch({
           setNowUpdated={setUpdated}
           role="filterByStage"
           placeholderText="Stage"
-          first="Stage_1"
-          second="Stage_2"
-          third="Stage_3"
-          forth="Stage_4"
+          first="Stage 1"
+          second="Stage 2"
+          third="Stage 3"
+          forth="Stage 4"
           fifth="Interview"
           sixth="Final"
         />
@@ -60,11 +60,11 @@ export default function FilterAndSearch({
           setNowUpdated={setUpdated}
           role="filterByRegion"
           placeholderText="Region"
-          first="North_West"
-          second="West_Midlands"
-          third="East_Midlands"
+          first="North West"
+          second="West Midlands"
+          third="East Midlands"
           forth="London"
-          fifth="South_East"
+          fifth="South East"
           sixth="Other"
         />
         <Dropdown
