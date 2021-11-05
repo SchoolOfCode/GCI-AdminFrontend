@@ -2,6 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Heading } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Text } from "@chakra-ui/layout";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+} from "@chakra-ui/react";
 import { Rating } from "react-simple-star-rating";
 import VideoPlayer from "../VideoPlayer";
 const axios = require("axios");
@@ -153,72 +163,62 @@ export default function CurrentApplication({
       />
       <section className="stage1section">
         <Heading className="m-10">Stage 1 - Applicant information</Heading>
-        {questions.map((value, index) => (
-          <div className="flex flex-row ">
-            {" "}
-            <Text fontWeight="semibold" className="ml-5">
-              {value}:
-            </Text>{" "}
-            <Text>{`${s1[index]}`}</Text>
-          </div>
-        ))}
-        <Rating onClick={handleRating1} ratingValue={rating1} />
-        <Heading className="m-10">Stage 2 - Pixel Character</Heading>
-        <Heading className="text-md font-semibold m-10">
-          <a href={stage2} target="_blank">
-            {stage2}
-          </a>
-          {stage2}
-        </Heading>
-        <Rating onClick={handleRating2} ratingValue={rating2} />
+        <Table size="half" variant="simple" fontWeight="semibold">
+          <Thead>
+            <Tr>
+              <Th className="text-center">Question</Th>
+              <Th className="text-center">Answer</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {questions.map((value, index) => {
+              return (
+                <Tr>
+                  <Td fontWeight="semibold" className="mr-2">
+                    {value}:
+                  </Td>{" "}
+                  <Td fontWeight="normal">{`${s1[index]}`}</Td>
+                </Tr>
+              );
+            })}
+          </Tbody>
+          <Rating onClick={handleRating1} ratingValue={rating1} />
+        </Table>
+      </section>
 
-        <Heading className="m-10">Stage 3 - Video</Heading>
-        <VideoPlayer video={stage3} />
-        <Heading className="text-md font-semibold m-10">
-          <a href={stage3} target="_blank">
-            {stage3}
-          </a>
-        </Heading>
-        <Rating onClick={handleRating3} ratingValue={rating3} />
+     
+      <Heading className="mt-5">Stage 2 - Pixel Character</Heading>
+      <Heading className="text-md font-semibold mb-5">{stage2}</Heading>
+      <Rating onClick={handleRating2} ratingValue={rating2} />
 
-        <Heading className="m-10">Stage 4 - Scratch Game</Heading>
-        <Heading className="text-md font-semibold m-10">
-          <a href={stage4} target="_blank">
-            {stage4}
-          </a>
-        </Heading>
-        <Rating onClick={handleRating4} ratingValue={rating4} />
-        <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
-        <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
-        <section className="flex flex-row align-items-center">
-          <MainButton
-            buttonText="Reject"
-            onClick={setRejected}
-            buttonColor="red"
-            m="m-3"
-          />
-          <MainButton
-            buttonText="Invite to Interview"
-            buttonColor="green"
-            m="m-3"
-            onClick={setInterview}
-          />
-        </section>
-        <Heading className="m-10">AFTER INTERVIEW</Heading>
-        <section className="flex flex-row align-items-center">
-          <MainButton
-            buttonText="Reject"
-            onClick={setRejected}
-            buttonColor="red"
-            m="m-3"
-          />
-          <MainButton
-            buttonText="Invite to Bootcamp :)"
-            buttonColor="green"
-            m="m-3"
-            onClick={setFinal}
-          />
-        </section>
+      <Heading className="mt-5">Stage 3 - Video</Heading>
+      <VideoPlayer video={stage3} />
+      <Heading className="text-md font-semibold mb-5">{stage3}</Heading>
+      <Rating onClick={handleRating3} ratingValue={rating3} />
+
+      <Heading className="mt-5">Stage 4 - Scratch Game</Heading>
+      <Heading className="text-md font-semibold mb-5">{stage4}</Heading>
+      <Rating onClick={handleRating4} ratingValue={rating4} />
+      <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
+      <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
+      <section className="flex flex-row align-items-center">
+        <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
+        <MainButton
+          buttonText="Invite to Interview"
+          buttonColor="green"
+          m="m-3"
+          onClick={setInterview}
+        />
+      </section>
+      <Heading className="mt-2">AFTER INTERVIEW</Heading>
+      <section className="flex flex-row align-items-center">
+        <MainButton buttonText="Get Wrekt" buttonColor="red" m="m-3" />
+        <MainButton
+          buttonText="Invite to Bootcamp :)"
+          buttonColor="green"
+          m="m-3"
+          onClick={setFinal}
+        />
       </section>
     </section>
   );
