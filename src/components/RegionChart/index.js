@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
 const axios = require("axios").default;
 
-export default function ApplicationsChart() {
+export default function RegionChart() {
   const [isLoading, setLoading] = useState(true);
   const [northWest, setNorthWest] = useState(0);
   const [westMid, setWestMid] = useState(0);
