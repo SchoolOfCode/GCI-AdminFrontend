@@ -15,9 +15,9 @@ export default function ApplicationsChart() {
     axios.get(`https://gci-backend.herokuapp.com/users/`).then((response) => {
       setTotal(response.data.payload.length);
       response.data.payload.forEach((item) => {
-        if (item.current_stage === 7 && item.final.final === true) {
+        if (item.status === "Accepted") {
           setAccepted(accepted + 1);
-        } else if (item.current_stage === 7 && item.final.final === false) {
+        } else if (item.status === "Rejected") {
           setRejected(rejected + 1);
         }
       });
