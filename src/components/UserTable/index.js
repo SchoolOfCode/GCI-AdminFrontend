@@ -1,12 +1,12 @@
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import MainButton from "../MainButton";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
+import Assignee from "../Assignee";
+const axios = require("axios").default;
 
 export default function UserTable({ applications, setCurrentApplication }) {
-  const [assignee, setAssignee] = useState("");
-
   return (
     <Table
       size="half"
@@ -36,13 +36,17 @@ export default function UserTable({ applications, setCurrentApplication }) {
                 Stage: {application.current_stage}
               </Td>
               <Td className="w-1/6">
-                <Dropdown
+                <Assignee
                   label=""
-                  placeholderText="Assignee"
+                  placeholderText={application.assignee}
                   first="Chris"
                   second="Liz"
-                  setOption={setAssignee}
-                  option={assignee}
+                  third="Loz"
+                  fourth="Tao"
+                  fifth="Arshi"
+                  sixth="Hamza"
+                  id={application.id}
+                 
                 />
               </Td>
               <Td className="text-center">

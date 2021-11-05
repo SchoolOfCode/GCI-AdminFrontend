@@ -31,31 +31,6 @@ export default function HomePage() {
     }
   }, [width]);
 
-  // axios.get(`https://gci-backend.herokuapp.com/users/`).then((result) => {
-  //   {
-  //     result.data.payload.forEach(function (item) {
-  //       values.push(item.current_stage);
-  //     });
-  //   }
-  //   values.forEach((item) => {
-  //     if (item === 1) {
-  //       return (stages[0] += 1);
-  //     } else if (item === 2) {
-  //       return (stages[1] += 1);
-  //     } else if (item === 3) {
-  //       return (stages[2] += 1);
-  //     } else if (item === 4) {
-  //       return (stages[3] += 1);
-  //     } else if (item === 5) {
-  //       return (stages[4] += 1);
-  //     } else if (item === 6) {
-  //       return (stages[5] += 1);
-  //     } else if (item === 7) {
-  //       return (stages[6] += 1);
-  //     }
-  //   });console.log("stages on the homepage", stages);
-  // });
-
   
   return (
     <div className="">
