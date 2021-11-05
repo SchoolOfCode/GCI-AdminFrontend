@@ -13,6 +13,7 @@ export default function RegionChart() {
   const [southEast, setSouthEast] = useState(0);
   const [other, setOther] = useState(0);
 
+  //fetching region from database to fill chart
   useEffect(() => {
     axios.get(`https://gci-backend.herokuapp.com/users/`).then((response) => {
       response.data.payload.forEach((item) => {
