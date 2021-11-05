@@ -63,7 +63,7 @@ export default function CurrentApplication({
       .then(
         axios.patch(
           `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
-          { interview: { interview: true } }
+          { interview: true }
         )
       );
   }
@@ -76,7 +76,25 @@ export default function CurrentApplication({
       .then(
         axios.patch(
           `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=final`,
-          { final: { final: true } }
+          {
+            final: `Congratulations ${currentApplication.first_name}! You’ve made it all the way through our selection process, and having seen tons of applications, we think you'd be a perfect fit for our School of Code bootcamp. Now that the applications are finished, it's time for the hard work to begin. The bootcamp is intense! It's full-time, 9am-5pm, Monday-Friday for 16 weeks and will push you beyond your limits. It will be one of the hardest things you will ever do. If you are up for the challenge and have the commitment we are looking for to develop yourself, the School of Code is the best place for you to start your tech journey. You'll be joining the most unique coding and learning experience in the world that's equally supportive and challenging! You will be part of a team of people helping each other through a journey which you'll finish with new skills, new friends, a new career, and a new life. Please do not announce your offer publicly or on social media until we make our official public announcement next week. This is to be fair to those who haven't been successful this time. Once we've publicly announced the successful bootcampers to introduce you to the School of Code community, feel free to share and shout about the good news after that is live. Thanks for your understanding - we know you must be excited to share the news, but it will be worth the wait until after our announcement next week. You've done an amazing job getting to this point, but this is just the beginning. We're here to help you make the most of this life-changing opportunity, but it's down to you, and it has to be your choice to come on board. We're looking forward to seeing you soon, and welcome to the School of Code family! Team School of Code`,
+          }
+        )
+      );
+  }
+
+  function setRejected() {
+    axios
+      .patch(
+        `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=current_stage`,
+        { stage: 7 }
+      )
+      .then(
+        axios.patch(
+          `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=final`,
+          {
+            final: `Dear ${currentApplication.first_name}, Thank you for taking the time you took completing the bootcamp application tasks. It was a pleasure to learn more about your skills and accomplishments. Unfortunately, our team did not select you for further consideration. We are happy to answer your questions if you would like any specific feedback about your application or interview. Thanks again for your interest in the School of Code Bootcamp. Regards, The School of Code Team`,
+          }
         )
       );
   }
@@ -155,7 +173,12 @@ export default function CurrentApplication({
         <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
         <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
         <section className="flex flex-row align-items-center">
-          <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
+          <MainButton
+            buttonText="Reject"
+            onClick={setRejected}
+            buttonColor="red"
+            m="m-3"
+          />
           <MainButton
             buttonText="Invite to Interview"
             buttonColor="green"
@@ -165,7 +188,12 @@ export default function CurrentApplication({
         </section>
         <Heading className="mt-2">AFTER INTERVIEW</Heading>
         <section className="flex flex-row align-items-center">
-          <MainButton buttonText="Get Wrekt" buttonColor="red" m="m-3" />
+          <MainButton
+            buttonText="Reject"
+            onClick={setRejected}
+            buttonColor="red"
+            m="m-3"
+          />
           <MainButton
             buttonText="Invite to Bootcamp :)"
             buttonColor="green"
