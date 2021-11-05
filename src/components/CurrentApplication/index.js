@@ -140,6 +140,7 @@ export default function CurrentApplication({
     "Reason for joining School of Code",
     "Found about School of Code via",
   ];
+  //
 
   return (
     <section>
