@@ -8,7 +8,6 @@ export default function ApplicationsChart() {
   const [isLoading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const [accepted, setAccepted] = useState(0);
-  const [pending, setPending] = useState(0);
   const [rejected, setRejected] = useState(0);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function ApplicationsChart() {
 
       setLoading(false);
     });
-  }, [isLoading]);
+  }, []);
 
   let data = {
     labels: ["Number of Applicants"],
