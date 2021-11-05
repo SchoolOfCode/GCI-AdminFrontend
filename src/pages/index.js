@@ -46,7 +46,7 @@ const IndexPage = () => {
   const [regionFilter, setRegionFilter] = useState("none");
   const [assigneeFilter, setAssigneeFilter] = useState("none");
   const [statusFilter, setStatusFilter] = useState("none");
-  const [interviewFilter, setInterviewFilter] = useState("none");
+
   const [shortlistedFilter, setShortlistedFilter] = useState("none");
   const [searchFilter, setSearchFilter] = useState("");
   // for mobile interface usage
@@ -65,7 +65,7 @@ const IndexPage = () => {
   useEffect(() => {
     axios
       .get(
-        `https://gci-backend.herokuapp.com/users?offset=${page}&stage=${stageFilter}&date=${dateFilter}&region=${regionFilter}&assignee=${assigneeFilter}&status=${statusFilter}&interview=${interviewFilter}&shortlisted=${shortlistedFilter}&search=${searchFilter}`
+        `https://gci-backend.herokuapp.com/users?offset=${page}&stage=${stageFilter}&date=${dateFilter}&region=${regionFilter}&assignee=${assigneeFilter}&status=${statusFilter}&shortlisted=${shortlistedFilter}&search=${searchFilter}`
       )
       .then((result) => {
         setCurrentApplications(result.data.payload);
@@ -77,7 +77,6 @@ const IndexPage = () => {
     regionFilter,
     assigneeFilter,
     statusFilter,
-    interviewFilter,
     shortlistedFilter,
     searchFilter,
   ]);
@@ -170,7 +169,6 @@ const IndexPage = () => {
                   setCurrentRegionFilter={setRegionFilter}
                   setCurrentAssigneeFilter={setAssigneeFilter}
                   setCurrentStatusFilter={setStatusFilter}
-                  setCurrentInterviewFilter={setInterviewFilter}
                   setCurrentShortlistedFilter={setShortlistedFilter}
                   setCurrentSearchFilter={setSearchFilter}
                 />
