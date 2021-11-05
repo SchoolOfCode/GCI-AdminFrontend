@@ -64,6 +64,7 @@ export default function Applications({
         <CurrentApplication
           currentApplication={currentApplication}
           setCurrentApplication={setCurrentApplication}
+          setCurrentSearchFilter={setCurrentSearchFilter}
         />
       )}
     </section>

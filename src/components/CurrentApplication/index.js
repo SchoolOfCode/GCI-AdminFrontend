@@ -9,6 +9,7 @@ const axios = require("axios");
 export default function CurrentApplication({
   currentApplication,
   setCurrentApplication,
+  setCurrentSearchFilter,
 }) {
   const [rating1, setRating1] = useState(1);
   const [rating2, setRating2] = useState(1);
@@ -121,7 +122,10 @@ export default function CurrentApplication({
   return (
     <section>
       <MainButton
-        onClick={() => setCurrentApplication({ empty: true })}
+        onClick={() => {
+          setCurrentSearchFilter("");
+          setCurrentApplication({ empty: true });
+        }}
         buttonText="< Back"
       />
       <section className="stage1section">
