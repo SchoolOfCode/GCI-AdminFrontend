@@ -24,6 +24,7 @@ export default function Dropdown({
   const handleSelect = (e) => {
     setOption(e.target.value);
     setNowUpdated(nowUpdated + 1);
+    console.log("my value is " + e.target.value);
   };
 
   let array = [first, second, third, forth, fifth, sixth];
