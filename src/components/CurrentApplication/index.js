@@ -2,16 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Heading } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Text } from "@chakra-ui/layout";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-} from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { Rating } from "react-simple-star-rating";
 import VideoPlayer from "../VideoPlayer";
 const axios = require("axios");
@@ -186,21 +177,32 @@ export default function CurrentApplication({
         </Table>
       </section>
 
-     
-      <Heading className="mt-5">Stage 2 - Pixel Character</Heading>
-      <Heading className="text-md font-semibold mb-5">{stage2}</Heading>
+      <Heading className="m-10">Stage 2 - Pixel Character</Heading>
+      <Heading className="text-md font-semibold mb-5">
+        <a href={stage2} target="_blank">
+          {stage2}
+        </a>
+      </Heading>
       <Rating onClick={handleRating2} ratingValue={rating2} />
 
-      <Heading className="mt-5">Stage 3 - Video</Heading>
+      <Heading className="m-10">Stage 3 - Video</Heading>
       <VideoPlayer video={stage3} />
-      <Heading className="text-md font-semibold mb-5">{stage3}</Heading>
+      <Heading className="text-md font-semibold mb-5">
+        <a href={stage3} target="_blank">
+          {stage3}
+        </a>
+      </Heading>
       <Rating onClick={handleRating3} ratingValue={rating3} />
 
-      <Heading className="mt-5">Stage 4 - Scratch Game</Heading>
-      <Heading className="text-md font-semibold mb-5">{stage4}</Heading>
+      <Heading className="m-10">Stage 4 - Scratch Game</Heading>
+      <Heading className="text-md font-semibold mb-5">
+        <a href={stage4} target="_blank">
+          {stage4}
+        </a>
+      </Heading>
       <Rating onClick={handleRating4} ratingValue={rating4} />
-      <Heading className="mt-2">TOTAL SCORE: {totalScore} </Heading>
-      <Heading className="mt-2">AVERAGE SCORE: {averageScore} </Heading>
+      <Heading className="m-10">TOTAL SCORE: {totalScore} </Heading>
+      <Heading className="m-10">AVERAGE SCORE: {averageScore} </Heading>
       <section className="flex flex-row align-items-center">
         <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
         <MainButton
@@ -210,9 +212,9 @@ export default function CurrentApplication({
           onClick={setInterview}
         />
       </section>
-      <Heading className="mt-2">AFTER INTERVIEW</Heading>
+      <Heading className="m-10">AFTER INTERVIEW</Heading>
       <section className="flex flex-row align-items-center">
-        <MainButton buttonText="Get Wrekt" buttonColor="red" m="m-3" />
+        <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
         <MainButton
           buttonText="Invite to Bootcamp :)"
           buttonColor="green"
