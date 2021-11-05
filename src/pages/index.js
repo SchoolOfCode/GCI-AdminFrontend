@@ -65,7 +65,7 @@ const IndexPage = () => {
   useEffect(() => {
     axios
       .get(
-        `https://localhost:3000/users?offset=${page}&stage=${stageFilter}&date=${dateFilter}&region=${regionFilter}&assignee=${assigneeFilter}&status=${statusFilter}&interview=${interviewFilter}&shortlisted=${shortlistedFilter}&search=${searchFilter}`
+        `https://gci-backend.herokuapp.com/users?offset=${page}&stage=${stageFilter}&date=${dateFilter}&region=${regionFilter}&assignee=${assigneeFilter}&status=${statusFilter}&interview=${interviewFilter}&shortlisted=${shortlistedFilter}&search=${searchFilter}`
       )
       .then((result) => {
         setCurrentApplications(result.data.payload);
