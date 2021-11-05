@@ -7,6 +7,7 @@ import { Text } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../../functions/detectMob";
+const axios = require("axios").default;
 
 export default function HomePage() {
   //   // for mobile interface usage
@@ -14,20 +15,48 @@ export default function HomePage() {
   const [vWidth, setvWidth] = useState("w-auto");
   const [vHeight, setvHeight] = useState("h-auto");
   const [isMobile, setIsMobile] = useState(false);
+  // let values = [];
+  // let stages = [0, 0, 0, 0, 0, 0, 0];
+
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
       setvWidth("min-2/4");
       setvHeight("min-2/4");
       setIsMobile(true);
       console.log("mobile");
-    }
-    if (width > 1080) {
+    } else if (width > 1080) {
       setvWidth("w-auto");
       setvHeight("h-auto");
       setIsMobile(false);
     }
   }, [width]);
 
+  // axios.get(`https://gci-backend.herokuapp.com/users/`).then((result) => {
+  //   {
+  //     result.data.payload.forEach(function (item) {
+  //       values.push(item.current_stage);
+  //     });
+  //   }
+  //   values.forEach((item) => {
+  //     if (item === 1) {
+  //       return (stages[0] += 1);
+  //     } else if (item === 2) {
+  //       return (stages[1] += 1);
+  //     } else if (item === 3) {
+  //       return (stages[2] += 1);
+  //     } else if (item === 4) {
+  //       return (stages[3] += 1);
+  //     } else if (item === 5) {
+  //       return (stages[4] += 1);
+  //     } else if (item === 6) {
+  //       return (stages[5] += 1);
+  //     } else if (item === 7) {
+  //       return (stages[6] += 1);
+  //     }
+  //   });console.log("stages on the homepage", stages);
+  // });
+
+  
   return (
     <div className="">
       {isMobile && (
@@ -38,7 +67,7 @@ export default function HomePage() {
             }
           >
             <ApplicationChart />
-            <StageChart />
+            <StageChart  />
             <RegionChart />
             <GenderChart />
           </section>
@@ -49,7 +78,7 @@ export default function HomePage() {
           <section>
             <section className={"grid grid-rows-2 grid-flow-col"}>
               <ApplicationChart />
-              <StageChart />
+              <StageChart  />
               <RegionChart />
               <GenderChart />
               <div className="flex flex-row flex-wrap">
