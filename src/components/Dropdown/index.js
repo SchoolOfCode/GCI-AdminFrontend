@@ -13,6 +13,7 @@ export default function Dropdown({
   forth = "",
   fifth = "",
   sixth = "",
+  seventh = "",
   m = "m-0",
   nowUpdated,
   setNowUpdated,
@@ -27,7 +28,7 @@ export default function Dropdown({
     console.log("my value is " + e.target.value);
   };
 
-  let array = [first, second, third, forth, fifth, sixth];
+  let array = [first, second, third, forth, fifth, sixth, seventh];
   let list = [];
   array.forEach(function (e) {
     if (e.length > 1) {

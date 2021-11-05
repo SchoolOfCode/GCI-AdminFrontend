@@ -18,7 +18,6 @@ export default function Applications({
   setCurrentRegionFilter,
   setCurrentAssigneeFilter,
   setCurrentStatusFilter,
-  setCurrentInterviewFilter,
   setCurrentShortlistedFilter,
   setCurrentSearchFilter,
 }) {
@@ -32,7 +31,6 @@ export default function Applications({
             setCurrentRegionFilter={setCurrentRegionFilter}
             setCurrentAssigneeFilter={setCurrentAssigneeFilter}
             setCurrentStatusFilter={setCurrentStatusFilter}
-            setCurrentInterviewFilter={setCurrentInterviewFilter}
             setCurrentShortlistedFilter={setCurrentShortlistedFilter}
             setCurrentSearchFilter={setCurrentSearchFilter}
           />

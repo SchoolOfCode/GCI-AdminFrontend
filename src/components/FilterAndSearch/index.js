@@ -10,7 +10,6 @@ export default function FilterAndSearch({
   setCurrentRegionFilter,
   setCurrentAssigneeFilter,
   setCurrentStatusFilter,
-  setCurrentInterviewFilter,
   setCurrentShortlistedFilter,
   setCurrentSearchFilter,
 }) {
@@ -22,9 +21,6 @@ export default function FilterAndSearch({
     setCurrentRegionFilter(document.querySelector(".filterByRegion").value);
     setCurrentAssigneeFilter(document.querySelector(".filterByAssignee").value);
     setCurrentStatusFilter(document.querySelector(".filterByStatus").value);
-    setCurrentInterviewFilter(
-      document.querySelector(".filterByInterview").value
-    );
     setCurrentShortlistedFilter(
       document.querySelector(".filterByShortlisted").value
     );
@@ -40,12 +36,11 @@ export default function FilterAndSearch({
           setNowUpdated={setUpdated}
           role="filterByStage"
           placeholderText="Stage"
-          first="Stage 1"
-          second="Stage 2"
-          third="Stage 3"
-          forth="Stage 4"
-          fifth="Interview"
-          sixth="Final"
+          first="Stage 2"
+          second="Stage 3"
+          third="Stage 4"
+          forth="Interview"
+          fifth="Final"
         />
         <Dropdown
           nowUpdated={updated}
@@ -74,6 +69,11 @@ export default function FilterAndSearch({
           placeholderText="Assignee"
           first="Chris"
           second="Liz"
+          third="Loz"
+          fourth="Tao"
+          fifth="Arshi"
+          sixth="Hamza"
+          seventh="Not assigned"
         />
         <Dropdown
           nowUpdated={updated}
@@ -83,14 +83,6 @@ export default function FilterAndSearch({
           first="Accepted"
           second="Pending"
           third="Rejected"
-        />
-        <Dropdown
-          nowUpdated={updated}
-          setNowUpdated={setUpdated}
-          role="filterByInterview"
-          placeholderText="Interview"
-          first="Yes"
-          second="No"
         />
         <Dropdown
           nowUpdated={updated}
@@ -110,7 +102,6 @@ export default function FilterAndSearch({
             role="filterBySearch"
             placeholderText="ID, E-mail"
           />
-          {/* <MainButton buttonText="Search" size="sm" /> */}
         </div>
       </section>
     </div>
