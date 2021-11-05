@@ -204,7 +204,12 @@ export default function CurrentApplication({
       <Heading className="m-10">TOTAL SCORE: {totalScore} </Heading>
       <Heading className="m-10">AVERAGE SCORE: {averageScore} </Heading>
       <section className="flex flex-row align-items-center">
-        <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
+        <MainButton
+          buttonText="Reject"
+          onClick={setRejected}
+          buttonColor="red"
+          m="m-3"
+        />
         <MainButton
           buttonText="Invite to Interview"
           buttonColor="green"
@@ -214,7 +219,12 @@ export default function CurrentApplication({
       </section>
       <Heading className="m-10">AFTER INTERVIEW</Heading>
       <section className="flex flex-row align-items-center">
-        <MainButton buttonText="Reject" buttonColor="red" m="m-3" />
+        <MainButton
+          buttonText="Reject"
+          onClick={setRejected}
+          buttonColor="red"
+          m="m-3"
+        />
         <MainButton
           buttonText="Invite to Bootcamp :)"
           buttonColor="green"
