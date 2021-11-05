@@ -178,18 +178,14 @@ export default function CurrentApplication({
       </section>
 
       <Heading className="m-10">Stage 2 - Pixel Character</Heading>
-      <Heading className="text-md font-semibold mb-5">
-        <a href={stage2} target="_blank" rel="noopener noreferrer">
-          {stage2}
-        </a>
-      </Heading>
+      <Heading className="text-md font-semibold mb-5">{stage2}</Heading>
       <Rating onClick={handleRating2} ratingValue={rating2} />
 
       <Heading className="m-10">Stage 3 - Video</Heading>
       <VideoPlayer video={stage3} />
       <Heading className="text-md font-semibold mb-5">
         <a href={stage3} target="_blank" rel="noopener noreferrer">
-          linky
+          {stage3}
         </a>
       </Heading>
       <Rating onClick={handleRating3} ratingValue={rating3} />
