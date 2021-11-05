@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Select, FormControl, FormLabel } from "@chakra-ui/react";
 const axios = require("axios").default;
 
@@ -21,7 +21,7 @@ export default function Assignee({
   //function to capture the selected value
   const handleSelect = (e) => {
     setPerson(e.target.value);
-    if (e.target.value == "Not assigned") {
+    if (e.target.value === "Not assigned") {
       axios
         .patch(
           `https://gci-backend.herokuapp.com/users/${id}?column=assignee`,
