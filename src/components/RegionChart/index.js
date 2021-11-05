@@ -16,24 +16,24 @@ export default function RegionChart() {
   useEffect(() => {
     axios.get(`https://gci-backend.herokuapp.com/users/`).then((response) => {
       response.data.payload.forEach((item) => {
-        if (item.stage_1[14] === "North West") {
+        if (item.region === "North West") {
           setNorthWest(northWest + 1);
-        } else if (item.stage_1[14] === "West Midlands") {
+        } else if (item.region === "West Midlands") {
           setWestMid(westMid + 1);
-        } else if (item.stage_1[14] === "East Midlands") {
+        } else if (item.region === "East Midlands") {
           setEastMid(eastMid + 1);
-        } else if (item.stage_1[14] === "London") {
+        } else if (item.region === "London") {
           setLondon(london + 1);
-        } else if (item.stage_1[14] === "South East") {
+        } else if (item.region === "South East") {
           setSouthEast(southEast + 1);
-        } else if (item.stage_1[14] === "Other") {
+        } else if (item.region === "Other") {
           setOther(other + 1);
         }
       });
 
       setLoading(false);
     });
-  }, [isLoading]);
+  }, []);
 
   let data = {
     labels: ["Region"],
@@ -68,16 +68,16 @@ export default function RegionChart() {
       },
       {
         label: "South East",
-        data: [eastMid],
-        backgroundColor: ["rgba(200 , 100, 233, 0.5)"],
-        borderColor: ["rgba(200 , 100, 233, 1)"],
+        data: [southEast],
+        backgroundColor: ["rgba(255 , 105, 180, 0.5)"],
+        borderColor: ["rgba(255 , 105, 180, 1)"],
         borderWidth: 1,
       },
       {
         label: "Other",
         data: [other],
-        backgroundColor: ["rgba(34, 232, 180, 0.5)"],
-        borderColor: ["rgba(34, 232, 180, 1)"],
+        backgroundColor: ["rgba(241, 90, 34, 0.5)"],
+        borderColor: ["rgba(241, 90, 34, 1)"],
         borderWidth: 1,
       },
     ],
