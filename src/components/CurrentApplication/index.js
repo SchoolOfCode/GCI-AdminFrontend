@@ -179,7 +179,7 @@ export default function CurrentApplication({
 
       <Heading className="m-10">Stage 2 - Pixel Character</Heading>
       <Heading className="text-md font-semibold mb-5">
-        <a href={stage2} target="_blank">
+        <a href={stage2} target="_blank" rel="noopener noreferrer">
           {stage2}
         </a>
       </Heading>
@@ -188,15 +188,15 @@ export default function CurrentApplication({
       <Heading className="m-10">Stage 3 - Video</Heading>
       <VideoPlayer video={stage3} />
       <Heading className="text-md font-semibold mb-5">
-        <a href={stage3} target="_blank">
-          {stage3}
+        <a href={stage3} target="_blank" rel="noopener noreferrer">
+          linky
         </a>
       </Heading>
       <Rating onClick={handleRating3} ratingValue={rating3} />
 
       <Heading className="m-10">Stage 4 - Scratch Game</Heading>
       <Heading className="text-md font-semibold mb-5">
-        <a href={stage4} target="_blank">
+        <a href={stage4} target="_blank" rel="noopener noreferrer">
           {stage4}
         </a>
       </Heading>
