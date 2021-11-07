@@ -3,16 +3,16 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../../functions/detectMob";
 
 export default function VideoPlayer(video) {
-  const [url, setUrl] = useState("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+  const [url, setUrl] = useState("");
 
   //   // for mobile interface usage
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   const [vWidth, setvWidth] = useState("480");
   const [vHeight, setvHeight] = useState("270");
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
-      setvWidth("240");
-      setvHeight("135");
+      setvWidth("360");
+      setvHeight("220");
     }
     if (width > 1080) {
       setvWidth("480");
@@ -24,9 +24,9 @@ export default function VideoPlayer(video) {
       // function you can use:
       // console.log("new id", url.split("=", 8)[1].slice(0, -1));
       if (url.includes("=")) {
-        let answer = url.split("=", 8)[1].slice(0, -1);
+        let answer = url.split("=", 8)[1].slice(0);
         return answer;
-      } else return "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      } else return "dQw4w9WgXcQ";
     }
 
     const link = getId(video.video);

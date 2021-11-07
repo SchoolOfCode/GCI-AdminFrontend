@@ -7,7 +7,6 @@ import { Text } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../../functions/detectMob";
-const axios = require("axios").default;
 
 export default function HomePage() {
   //   // for mobile interface usage
@@ -15,8 +14,6 @@ export default function HomePage() {
   const [vWidth, setvWidth] = useState("w-auto");
   const [vHeight, setvHeight] = useState("h-auto");
   const [isMobile, setIsMobile] = useState(false);
-  // let values = [];
-  // let stages = [0, 0, 0, 0, 0, 0, 0];
 
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
@@ -31,9 +28,8 @@ export default function HomePage() {
     }
   }, [width]);
 
-  
   return (
-    <div className="">
+    <div>
       {isMobile && (
         <div className="grid grid-rows-1 grid-flow-col">
           <section
@@ -42,7 +38,7 @@ export default function HomePage() {
             }
           >
             <ApplicationChart />
-            <StageChart  />
+            <StageChart />
             <RegionChart />
             <GenderChart />
           </section>
@@ -53,14 +49,14 @@ export default function HomePage() {
           <section>
             <section className={"grid grid-rows-2 grid-flow-col"}>
               <ApplicationChart />
-              <StageChart  />
+              <StageChart />
               <RegionChart />
               <GenderChart />
               <div className="flex flex-row flex-wrap">
                 <Text
                   fontSize="3xl"
                   fontFamily="fantasy"
-                  className="font-bold break-normal ml-40"
+                  className="font-bold break-normal ml-auto"
                 >
                   <p className="ml-40">
                     Hi Gang! Welcome to your admin page. Go forth and get us the
@@ -69,7 +65,7 @@ export default function HomePage() {
                   <motion.img
                     animate={{ scale: [0, 2, 1], rotate: 360 }}
                     transition={{ duration: 1.5 }}
-                    className="w-1/4"
+                    className="w-1/3"
                     src="https://i.ibb.co/cbQRNWK/chris.png"
                     alt="chris"
                   />

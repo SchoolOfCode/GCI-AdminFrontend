@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Heading } from "@chakra-ui/layout";
+import { Divider, Heading, Text } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { Rating } from "react-simple-star-rating";
 import VideoPlayer from "../VideoPlayer";
 import acceptedText from "./acceptedText";
 import rejectedText from "./rejectedText";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { detectMob } from "../../functions/detectMob";
 const axios = require("axios");
 
 export default function CurrentApplication({
@@ -22,6 +24,17 @@ export default function CurrentApplication({
   const [stage4, setStage4] = useState("");
   const [totalScore, setTotalScore] = useState(4);
   const [averageScore, setAverageScore] = useState(1);
+  //   // for mobile interface usage
+  const [width] = useWindowSize();
+  const [margin, setMargin] = useState("270");
+  useEffect(() => {
+    if (width <= 1080 || detectMob()) {
+      setMargin("240");
+    }
+    if (width > 1080) {
+      setMargin("480");
+    }
+  }, [width]);
   useEffect(() => {
     if (currentApplication.stage_2) {
       setStage2(currentApplication.stage_2.link);
@@ -172,8 +185,13 @@ export default function CurrentApplication({
         buttonText="< Back"
       />
       <section className="stage1section">
-        <Heading className="m-10">Stage 1 - Applicant information</Heading>
-        <Table size="half" variant="simple" fontWeight="semibold">
+        <Heading className="m-5">Stage 1 - Applicant information</Heading>
+        <Table
+          className="shadow-inner"
+          size="half"
+          variant="simple"
+          fontWeight="semibold"
+        >
           <Thead>
             <Tr>
               <Th className="text-center">Question</Th>
@@ -192,58 +210,65 @@ export default function CurrentApplication({
               );
             })}
           </Tbody>
-          <Rating onClick={handleRating1} ratingValue={rating1} />
         </Table>
+        <p>Rating:</p>
+        <Rating onClick={handleRating1} ratingValue={rating1} />
       </section>
-
-      <Heading className="m-10">Stage 2 - Pixel Character</Heading>
-      <Heading className="text-md font-semibold mb-5">{stage2}</Heading>
+      <Divider />
+      <Heading className="m-5">Stage 2 - Pixel Character</Heading>
+      <Divider />
+      <Text className="text-lg font-semibold m-5">Username: {stage2}</Text>
+      <p>Rating:</p>
       <Rating onClick={handleRating2} ratingValue={rating2} />
-
-      <Heading className="m-10">Stage 3 - Video</Heading>
+      <Divider />
+      <Heading className="m-5">Stage 3 - Video</Heading>
+      <Divider />
       <VideoPlayer video={stage3} />
-      <Heading className="text-md font-semibold mb-5">
+      <Text className="text-md text-blue-600 font-semibold m-5">
         <a href={stage3} target="_blank" rel="noopener noreferrer">
           {stage3}
         </a>
-      </Heading>
+      </Text>
+      <p>Rating:</p>
       <Rating onClick={handleRating3} ratingValue={rating3} />
-
-      <Heading className="m-10">Stage 4 - Scratch Game</Heading>
-      <Heading className="text-md font-semibold mb-5">
+      <Divider />
+      <Heading className="m-5">Stage 4 - Scratch Game</Heading>
+      <Divider />
+      <Text className="text-md text-blue-600 font-semibold m-5">
         <a href={stage4} target="_blank" rel="noopener noreferrer">
-          {stage4}
+          Link to Scratch game: {stage4}
         </a>
-      </Heading>
+      </Text>
+      <p>Rating:</p>
       <Rating onClick={handleRating4} ratingValue={rating4} />
-      <Heading className="m-10">TOTAL SCORE: {totalScore} </Heading>
-      <Heading className="m-10">AVERAGE SCORE: {averageScore} </Heading>
-      <section className="flex flex-row align-items-center">
+      <Text className="m-1 font-bold">Total score: {totalScore} </Text>
+      <Text className="m-1 font-bold">Average score: {averageScore} </Text>
+      <section>
         <MainButton
           buttonText="Reject"
           onClick={setRejected}
           buttonColor="red"
-          m="m-3"
+          m="m-3 shadow-lg"
         />
         <MainButton
           buttonText="Invite to Interview"
           buttonColor="green"
-          m="m-3"
+          m="m-3 shadow-lg"
           onClick={setInterview}
         />
       </section>
-      <Heading className="m-10">AFTER INTERVIEW</Heading>
-      <section className="flex flex-row align-items-center">
+      <Heading className="m-5">After Interview</Heading>
+      <section>
         <MainButton
           buttonText="Reject"
           onClick={setRejected}
           buttonColor="red"
-          m="m-3"
+          m="m-3 shadow-lg"
         />
         <MainButton
           buttonText="Invite to Bootcamp :)"
           buttonColor="green"
-          m="m-3"
+          m="m-3 shadow-lg"
           onClick={setFinal}
         />
       </section>

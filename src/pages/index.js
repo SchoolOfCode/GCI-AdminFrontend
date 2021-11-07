@@ -38,7 +38,7 @@ const IndexPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [application, setApplication] = useState({ empty: true });
   const [currentApplications, setCurrentApplications] = useState({});
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   const [menuAlignment, setMenuAlignment] = useState("vertical");
   const [contentAlignment, setContentAlignment] = useState("left");
   const [stageFilter, setStageFilter] = useState("none");
@@ -46,7 +46,7 @@ const IndexPage = () => {
   const [regionFilter, setRegionFilter] = useState("none");
   const [assigneeFilter, setAssigneeFilter] = useState("none");
   const [statusFilter, setStatusFilter] = useState("none");
-
+  const [margin, setMargin] = useState("m-20");
   const [shortlistedFilter, setShortlistedFilter] = useState("none");
   const [searchFilter, setSearchFilter] = useState("");
   // for mobile interface usage
@@ -54,10 +54,12 @@ const IndexPage = () => {
     if (width <= 1080 || detectMob()) {
       setMenuAlignment("horizontal");
       setContentAlignment("center");
+      setMargin("mt-5");
     }
     if (width > 1080) {
       setMenuAlignment("vertical");
       setContentAlignment("left");
+      setMargin("m-20");
     }
   }, [width]);
 
@@ -115,7 +117,7 @@ const IndexPage = () => {
         />
         <main className="wrapper">
           <Tabs
-            className="m-20"
+            className={margin}
             variant="line"
             align={contentAlignment}
             orientation={menuAlignment}
@@ -123,28 +125,28 @@ const IndexPage = () => {
           >
             <TabList>
               <Tab
-                className="border-2 border-white text-white font-semibold"
+                className="m-1 text-white font-semibold"
                 bg="#8896A3"
                 _selected={{ color: "white", bg: "#4A90E2" }}
               >
                 <p className="homePage">Home Page</p>
               </Tab>
               <Tab
-                className="border-2 border-white text-white font-semibold"
+                className="m-1 text-white font-semibold"
                 bg="#8896A3"
                 _selected={{ color: "white", bg: "#4A90E2" }}
               >
                 <p className="applications">Applications</p>
               </Tab>
               <Tab
-                className="border-2 border-white text-white font-semibold"
+                className="m-1 text-white font-semibold"
                 bg="#8896A3"
                 _selected={{ color: "white", bg: "#4A90E2" }}
               >
                 <p className="faq">F.A.Q.</p>
               </Tab>
               <Tab
-                className="border-2 border-white text-white font-semibold"
+                className="m-1 text-white font-semibold"
                 bg="#8896A3"
                 _selected={{ color: "white", bg: "#4A90E2" }}
               >

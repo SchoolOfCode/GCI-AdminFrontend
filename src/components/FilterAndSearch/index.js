@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
 import GenericInput from "../GenericInput";
-import MainButton from "../MainButton";
 import { Text } from "@chakra-ui/react";
 
 export default function FilterAndSearch({
@@ -29,8 +28,8 @@ export default function FilterAndSearch({
 
   return (
     <div>
-      <section className="flex flex-row">
-        <Text>Filter by</Text>
+      <section className="grid grid-flow-col">
+        <Text className="mr-10">Filter by</Text>
         <Dropdown
           nowUpdated={updated}
           setNowUpdated={setUpdated}
@@ -93,14 +92,14 @@ export default function FilterAndSearch({
           second="No"
         />
       </section>
-      <section>
+      <section className="mb-2">
         <div className="grid grid-flow-row">
-          <Text>Search by</Text>
+          <Text className="mb-2">Search by</Text>
           <GenericInput
             nowUpdated={updated}
             setNowUpdated={setUpdated}
             role="filterBySearch"
-            placeholderText="ID, E-mail"
+            placeholderText="ID, E-mail, etc."
           />
         </div>
       </section>

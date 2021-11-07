@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Select, FormControl, FormLabel } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Select, FormControl } from "@chakra-ui/react";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { detectMob } from "../../functions/detectMob";
 const axios = require("axios").default;
 
 export default function Assignee({
@@ -47,11 +49,22 @@ export default function Assignee({
       list.push({ label: e, value: e });
     }
   });
+  // for mobile interface usage
+  const [width] = useWindowSize();
+  const [w, setW] = useState("60%");
+  useEffect(() => {
+    if (width <= 1080 || detectMob()) {
+      setW("100%");
+    }
+    if (width > 1080) {
+      setW("60%");
+    }
+  }, [width]);
 
   return (
     <FormControl>
       <Select
-        width="50%"
+        width={w}
         variant="filled"
         placeholder={placeholderText}
         onChange={handleSelect}
