@@ -1,7 +1,7 @@
 import React from "react";
 import UserTable from "../UserTable";
 import MainButton from "../MainButton";
-import { Box } from "@chakra-ui/layout";
+import { Box, Divider, Heading } from "@chakra-ui/layout";
 import CurrentApplication from "../CurrentApplication";
 import FilterAndSearch from "../FilterAndSearch";
 
@@ -20,6 +20,7 @@ export default function Applications({
   setCurrentStatusFilter,
   setCurrentShortlistedFilter,
   setCurrentSearchFilter,
+  recentApps,
 }) {
   return (
     <section>
@@ -56,6 +57,16 @@ export default function Applications({
                 setCurrentPage(currentPage + 1);
             }}
           />
+          {recentApps.length > 0 && (
+            <section className="mt-20">
+              <Divider />
+              <Heading size="lg">Recently viewed</Heading>
+              <UserTable
+                applications={recentApps}
+                setCurrentApplication={setCurrentApplication}
+              />
+            </section>
+          )}
         </Box>
       )}
       {currentApplication.empty === undefined && (

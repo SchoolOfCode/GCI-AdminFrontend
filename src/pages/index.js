@@ -48,7 +48,21 @@ const IndexPage = () => {
   const [statusFilter, setStatusFilter] = useState("none");
   const [margin, setMargin] = useState("m-20");
   const [shortlistedFilter, setShortlistedFilter] = useState("none");
+  const [recentApplications, setRecentApplications] = useState([]);
   const [searchFilter, setSearchFilter] = useState("");
+
+  // saving recently viewed applications in an array to display
+  useEffect(() => {
+    let alreadyAdded = false;
+    if (!application.empty) {
+      recentApplications.map((app) => {
+        if (app.id === application.id) alreadyAdded = true;
+      });
+      if (!alreadyAdded)
+        setRecentApplications([...recentApplications, application]);
+    }
+  }, [application]);
+
   // for mobile interface usage
   useEffect(() => {
     if (width <= 1080 || detectMob()) {
@@ -173,6 +187,7 @@ const IndexPage = () => {
                   setCurrentStatusFilter={setStatusFilter}
                   setCurrentShortlistedFilter={setShortlistedFilter}
                   setCurrentSearchFilter={setSearchFilter}
+                  recentApps={recentApplications}
                 />
               </TabPanel>
               <TabPanel>
