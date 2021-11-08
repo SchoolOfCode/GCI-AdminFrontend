@@ -54,7 +54,7 @@ export default function Applications({
               size="sm"
               buttonText="Next Page"
               onClick={() => {
-                if (currentPage < totalCurrentPage)
+                if (currentPage <= totalCurrentPage)
                   setCurrentPage(currentPage + 1);
               }}
             />
