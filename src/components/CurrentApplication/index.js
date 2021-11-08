@@ -459,7 +459,9 @@ export default function CurrentApplication({
             </PopoverHeader>
             <PopoverArrow />
             <PopoverCloseButton />
-            <PopoverBody>Please confirm application will be deleted</PopoverBody>
+            <PopoverBody>
+              Please confirm application will be deleted
+            </PopoverBody>
             <PopoverFooter
               border="0"
               d="flex"
@@ -467,7 +469,7 @@ export default function CurrentApplication({
               justifyContent="space-between"
               pb={4}
             >
-            <DeleteButton userId={currentApplication.id}/>
+              <DeleteButton userId={currentApplication.id} />
             </PopoverFooter>
           </PopoverContent>
         </Popover>
