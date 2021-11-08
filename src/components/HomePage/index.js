@@ -58,7 +58,7 @@ export default function HomePage() {
                   fontFamily="fantasy"
                   className="font-bold break-normal ml-auto"
                 >
-                  <p className="ml-40">
+                  <p className="ml-40" fontFamily="fantasy">
                     Hi Gang! Welcome to your admin page. Go forth and get us the
                     best candidates!
                   </p>

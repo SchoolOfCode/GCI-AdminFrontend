@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Divider, Heading, Text } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
@@ -8,6 +8,19 @@ import acceptedText from "./acceptedText";
 import rejectedText from "./rejectedText";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../../functions/detectMob";
+import {
+  Button,
+  Box,
+  ButtonGroup,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+} from "@chakra-ui/react";
 const axios = require("axios");
 
 export default function CurrentApplication({
@@ -15,6 +28,7 @@ export default function CurrentApplication({
   setCurrentApplication,
   setCurrentSearchFilter,
 }) {
+  const initialFocusRef = useRef();
   const [rating1, setRating1] = useState(1);
   const [rating2, setRating2] = useState(1);
   const [rating3, setRating3] = useState(1);
@@ -244,33 +258,180 @@ export default function CurrentApplication({
       <Text className="m-1 font-bold">Total score: {totalScore} </Text>
       <Text className="m-1 font-bold">Average score: {averageScore} </Text>
       <section>
-        <MainButton
-          buttonText="Reject"
-          onClick={setRejected}
-          buttonColor="red"
-          m="m-3 shadow-lg"
-        />
-        <MainButton
-          buttonText="Invite to Interview"
-          buttonColor="green"
-          m="m-3 shadow-lg"
-          onClick={setInterview}
-        />
+        <Popover
+          initialFocusRef={initialFocusRef}
+          placement="start"
+          closeOnBlur={false}
+        >
+          <PopoverTrigger>
+            <Button
+            marginRight="2"
+              _hover={{ bg: "#000818" }}
+              size="lg"
+              bg="red"
+              color="white"
+              _active={{
+                transform: "scale(0.75)",
+              }}
+            >
+              Reject
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent color="white" bg="blue.800" borderColor="blue.800">
+            <PopoverHeader pt={4} fontWeight="bold" border="0">
+              CONFIRM
+            </PopoverHeader>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Please confirm rejection</PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb={4}
+            >
+              <MainButton
+                buttonText="REJECT"
+                buttonColor="red"
+                m="m-3 shadow-lg"
+                onClick={setRejected}
+              />
+            </PopoverFooter>
+          </PopoverContent>
+        </Popover>
+
+      <Popover
+          initialFocusRef={initialFocusRef}
+          placement="right"
+          closeOnBlur={false}
+        >
+          <PopoverTrigger>
+            <Button
+            marginLeft="2"
+              _hover={{ bg: "#000818" }}
+              size="lg"
+              bg="green"
+              color="white"
+              _active={{
+                transform: "scale(0.75)",
+              }}
+              
+            >
+              Invite to Interview
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent color="white" bg="blue.800" borderColor="blue.800">
+            <PopoverHeader pt={4} fontWeight="bold" border="0">
+              CONFIRM
+            </PopoverHeader>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Please confirm invitation to interview</PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb={4}
+            >
+              <MainButton
+                buttonText="INTERVIEW"
+                buttonColor="green"
+                m="m-3 shadow-lg"
+                onClick={setInterview}
+              />
+            </PopoverFooter>
+          </PopoverContent>
+        </Popover>
       </section>
       <Heading className="m-5">After Interview</Heading>
       <section>
-        <MainButton
-          buttonText="Reject"
-          onClick={setRejected}
-          buttonColor="red"
-          m="m-3 shadow-lg"
-        />
-        <MainButton
-          buttonText="Invite to Bootcamp :)"
-          buttonColor="green"
-          m="m-3 shadow-lg"
-          onClick={setFinal}
-        />
+      <Popover
+          initialFocusRef={initialFocusRef}
+          placement="start"
+          closeOnBlur={false}
+        >
+          <PopoverTrigger>
+            <Button
+            marginRight="2"
+              _hover={{ bg: "#000818" }}
+              size="lg"
+              bg="red"
+              color="white"
+              _active={{
+                transform: "scale(0.75)",
+              }}
+            >
+              Reject
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent color="white" bg="blue.800" borderColor="blue.800">
+            <PopoverHeader pt={4} fontWeight="bold" border="0">
+              CONFIRM
+            </PopoverHeader>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Please confirm rejection</PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb={4}
+            >
+              <MainButton
+                buttonText="REJECT"
+                buttonColor="red"
+                m="m-3 shadow-lg"
+                onClick={setRejected}
+              />
+            </PopoverFooter>
+          </PopoverContent>
+        </Popover>
+        <Popover
+          initialFocusRef={initialFocusRef}
+          placement="right"
+          closeOnBlur={false}
+        >
+          <PopoverTrigger>
+            <Button
+            marginLeft="2"
+              _hover={{ bg: "#000818" }}
+              size="lg"
+              bg="green"
+              color="white"
+              _active={{
+                transform: "scale(0.75)",
+              }}
+              
+            >
+              Invite to Bootcamp
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent color="white" bg="blue.800" borderColor="blue.800">
+            <PopoverHeader pt={4} fontWeight="bold" border="0">
+              CONFIRM
+            </PopoverHeader>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Please confirm invitation to Bootcamp</PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb={4}
+            >
+              <MainButton
+                buttonText="BOOTCAMP"
+                buttonColor="green"
+                m="m-3 shadow-lg"
+                onClick={setFinal}
+              />
+            </PopoverFooter>
+          </PopoverContent>
+        </Popover>
       </section>
     </section>
   );
