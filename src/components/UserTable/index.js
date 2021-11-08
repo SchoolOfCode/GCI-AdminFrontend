@@ -29,18 +29,18 @@ export default function UserTable({ applications, setCurrentApplication }) {
       >
         <Thead>
           <Tr>
-            <Th className="text-center">ID</Th>
+            <Th className="text-right">ID</Th>
             <Th className="text-center">Name</Th>
             <Th className="text-center">Stage</Th>
             <Th className="text-left">Assignee</Th>
-            <Th className="text-center">View</Th>
+            <Th className="text-right p-5">View</Th>
           </Tr>
         </Thead>
         <Tbody>
           {applications.map((application) => {
             return (
               <Tr>
-                <Td className="text-center">{application.id}</Td>
+                <Td className="text-right">{application.id}</Td>
                 <Td className="text-center break-words">
                   {application.first_name} {application.last_name}
                 </Td>
@@ -60,7 +60,7 @@ export default function UserTable({ applications, setCurrentApplication }) {
                   />
                 </Td>
 
-                <Td className="text-center">
+                <Td className="text-right p-5">
                   <MainButton
                     buttonText="View"
                     size="sm"
@@ -85,8 +85,10 @@ export default function UserTable({ applications, setCurrentApplication }) {
       >
         <Thead>
           <Tr>
-            <Th className="text-center">ID</Th>
-            <Th className="text-center">First Name</Th>
+            <Th isNumeric className="text-center">
+              ID
+            </Th>
+            <Th className="text-center p-5">First Name</Th>
             <Th className="text-center">Last Name</Th>
             <Th className="text-center">Stage</Th>
             <Th className="text-left">Assignee</Th>
@@ -99,8 +101,10 @@ export default function UserTable({ applications, setCurrentApplication }) {
           {applications.map((application) => {
             return (
               <Tr>
-                <Td className="text-center">{application.id}</Td>
-                <Td className="text-center">{application.first_name}</Td>
+                <Td isNumeric className="text-center">
+                  {application.id}
+                </Td>
+                <Td className="text-center p-5">{application.first_name}</Td>
                 <Td className="text-center">{application.last_name}</Td>
                 <Td className="text-center">
                   Stage: {application.current_stage}

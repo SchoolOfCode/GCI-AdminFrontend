@@ -52,13 +52,9 @@ export default function HomePage() {
               <StageChart />
               <RegionChart />
               <GenderChart />
-              <div className="flex flex-row flex-wrap">
-                <Text
-                  fontSize="3xl"
-                  fontFamily="fantasy"
-                  className="font-bold break-normal ml-auto"
-                >
-                  <p className="ml-40" fontFamily="fantasy">
+              <div className="flex flex-row flex-wrap ml-24">
+                <Text fontSize="3xl" className="font-bold break-normal ml-auto">
+                  <p className="ml-40">
                     Hi Gang! Welcome to your admin page. Go forth and get us the
                     best candidates!
                   </p>
