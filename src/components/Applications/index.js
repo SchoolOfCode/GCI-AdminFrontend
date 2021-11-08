@@ -12,7 +12,6 @@ export default function Applications({
   currentTotalPages,
   setCurrentApplication,
   currentApplication,
-  totalCurrentPage,
   setCurrentStageFilter,
   setCurrentDateFilter,
   setCurrentRegionFilter,
@@ -54,7 +53,7 @@ export default function Applications({
               size="sm"
               buttonText="Next Page"
               onClick={() => {
-                if (currentPage <= totalCurrentPage)
+                if (currentPage < currentTotalPages)
                   setCurrentPage(currentPage + 1);
               }}
             />

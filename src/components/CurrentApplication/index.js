@@ -269,7 +269,7 @@ export default function CurrentApplication({
         >
           <PopoverTrigger>
             <Button
-            marginRight="2"
+              marginRight="2"
               _hover={{ bg: "#000818" }}
               size="lg"
               bg="red"
@@ -305,14 +305,14 @@ export default function CurrentApplication({
           </PopoverContent>
         </Popover>
 
-      <Popover
+        <Popover
           initialFocusRef={initialFocusRef}
           placement="right"
           closeOnBlur={false}
         >
           <PopoverTrigger>
             <Button
-            marginLeft="2"
+              marginLeft="2"
               _hover={{ bg: "#000818" }}
               size="lg"
               bg="green"
@@ -320,7 +320,6 @@ export default function CurrentApplication({
               _active={{
                 transform: "scale(0.75)",
               }}
-              
             >
               Invite to Interview
             </Button>
@@ -351,14 +350,14 @@ export default function CurrentApplication({
       </section>
       <Heading className="m-5">After Interview</Heading>
       <section>
-      <Popover
+        <Popover
           initialFocusRef={initialFocusRef}
           placement="start"
           closeOnBlur={false}
         >
           <PopoverTrigger>
             <Button
-            marginRight="2"
+              marginRight="2"
               _hover={{ bg: "#000818" }}
               size="lg"
               bg="red"
@@ -400,7 +399,7 @@ export default function CurrentApplication({
         >
           <PopoverTrigger>
             <Button
-            marginLeft="2"
+              marginLeft="2"
               _hover={{ bg: "#000818" }}
               size="lg"
               bg="green"
@@ -408,7 +407,6 @@ export default function CurrentApplication({
               _active={{
                 transform: "scale(0.75)",
               }}
-              
             >
               Invite to Bootcamp
             </Button>
