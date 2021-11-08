@@ -95,6 +95,7 @@ const IndexPage = () => {
     statusFilter,
     shortlistedFilter,
     searchFilter,
+    totalPages,
   ]);
 
   //get request to determine total applications
