@@ -3,6 +3,7 @@ import { Divider, Heading, Text } from "@chakra-ui/layout";
 import MainButton from "../MainButton";
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { Rating } from "react-simple-star-rating";
+import DeleteButton from "../DeleteButton";
 import VideoPlayer from "../VideoPlayer";
 import acceptedText from "./acceptedText";
 import rejectedText from "./rejectedText";
@@ -10,8 +11,6 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { detectMob } from "../../functions/detectMob";
 import {
   Button,
-  Box,
-  ButtonGroup,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -21,6 +20,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
+import DeleteButton from "../DeleteButton";
 const axios = require("axios");
 
 export default function CurrentApplication({
@@ -434,6 +434,7 @@ export default function CurrentApplication({
             </PopoverFooter>
           </PopoverContent>
         </Popover>
+        <DeleteButton userId={currentApplication.id}/>
       </section>
     </section>
   );
