@@ -13,7 +13,7 @@ export default function DeleteButton({ userId }) {
 
   return (
     <MainButton
-      onClick={setDeleted}
+      onClick={() => setDeleted()}
       buttonText="Delete Application"
       buttonColor="orange"
     />
