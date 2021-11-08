@@ -53,16 +53,17 @@ export default function HomePage() {
               <RegionChart />
               <GenderChart />
               <div className="flex flex-row flex-wrap ml-24">
-                <Text fontSize="3xl" className="font-bold break-normal ml-auto">
-                  <p className="ml-40">
+                <Text fontSize="3xl" className="font-bold break-normal mr-auto">
+                  <p className="mr-40">
                     Hi Gang! Welcome to your admin page. Go forth and get us the
                     best candidates!
                   </p>
                   <motion.img
                     animate={{ scale: [0, 2, 1], rotate: 360 }}
                     transition={{ duration: 1.5 }}
-                    className="w-1/3"
-                    src="https://i.ibb.co/cbQRNWK/chris.png"
+                    className="ml-48 w-1/3"
+                    // src="https://i.ibb.co/cbQRNWK/chris.png"
+                    src="https://i.imgur.com/j2dTUyW.png"
                     alt="chris"
                   />
                 </Text>
