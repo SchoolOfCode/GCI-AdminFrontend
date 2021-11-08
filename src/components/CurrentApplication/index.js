@@ -20,7 +20,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import DeleteButton from "../DeleteButton";
+
 const axios = require("axios");
 
 export default function CurrentApplication({
@@ -434,7 +434,43 @@ export default function CurrentApplication({
             </PopoverFooter>
           </PopoverContent>
         </Popover>
-        <DeleteButton userId={currentApplication.id}/>
+        <Popover
+          initialFocusRef={initialFocusRef}
+          placement="right"
+          closeOnBlur={false}
+        >
+          <PopoverTrigger>
+            <Button
+              marginLeft="2"
+              _hover={{ bg: "#000818" }}
+              size="lg"
+              bg="Orange"
+              color="white"
+              _active={{
+                transform: "scale(0.75)",
+              }}
+            >
+              Delete User
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent color="white" bg="blue.800" borderColor="blue.800">
+            <PopoverHeader pt={4} fontWeight="bold" border="0">
+              CONFIRM
+            </PopoverHeader>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Please confirm application will be deleted</PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb={4}
+            >
+            <DeleteButton userId={currentApplication.id}/>
+            </PopoverFooter>
+          </PopoverContent>
+        </Popover>
       </section>
     </section>
   );
