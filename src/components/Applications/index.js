@@ -39,24 +39,26 @@ export default function Applications({
             applications={applications}
             setCurrentApplication={setCurrentApplication}
           />
-          <MainButton
-            size="sm"
-            buttonText="Previous Page"
-            onClick={() => {
-              if (currentPage > 1) {
-                setCurrentPage(currentPage - 1);
-              }
-            }}
-          />
-          {" " + currentPage + " / " + currentTotalPages + " "}
-          <MainButton
-            size="sm"
-            buttonText="Next Page"
-            onClick={() => {
-              if (currentPage < totalCurrentPage)
-                setCurrentPage(currentPage + 1);
-            }}
-          />
+          <section className="flex justify-center text-center">
+            <MainButton
+              size="sm"
+              buttonText="Previous Page"
+              onClick={() => {
+                if (currentPage > 1) {
+                  setCurrentPage(currentPage - 1);
+                }
+              }}
+            />
+            <p>{" " + currentPage + " / " + currentTotalPages + " "}</p>
+            <MainButton
+              size="sm"
+              buttonText="Next Page"
+              onClick={() => {
+                if (currentPage < totalCurrentPage)
+                  setCurrentPage(currentPage + 1);
+              }}
+            />
+          </section>
           {recentApps.length > 0 && (
             <section className="mt-20">
               <Divider />
