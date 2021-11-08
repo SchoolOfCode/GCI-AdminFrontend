@@ -76,10 +76,12 @@ export default function CurrentApplication({
         { stage: 6 }
       )
       .then(
-        axios.patch(
-          `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
-          { interview: true }
-        )
+        axios
+          .patch(
+            `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
+            { interview: true }
+          )
+          .then(alert("Invited to interview"))
       );
   }
   function setFinal() {
@@ -106,6 +108,7 @@ export default function CurrentApplication({
               }
             )
           )
+          .then(alert("Invitation letter sent"))
       );
   }
 
@@ -133,6 +136,7 @@ export default function CurrentApplication({
               }
             )
           )
+          .then(alert("Rejection letter sent"))
       );
   }
 
