@@ -39,7 +39,7 @@ export default function Applications({
             applications={applications}
             setCurrentApplication={setCurrentApplication}
           />
-          <section className="flex justify-center text-center">
+          <section className="flex justify-center text-center mt-5">
             <MainButton
               size="sm"
               buttonText="Previous Page"
