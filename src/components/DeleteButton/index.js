@@ -6,7 +6,7 @@ export default function DeleteButton({ userId }) {
   function setDeleted() {
     axios
       .delete(`https://gci-backend.herokuapp.com/users/${userId}`)
-      .then(window.location.reload(true))
+      .then(() => window.location.reload(true))
       .catch((err) => {
         console.log(err, "there was an error");
       });
