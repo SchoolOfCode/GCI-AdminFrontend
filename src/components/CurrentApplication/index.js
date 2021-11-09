@@ -96,6 +96,7 @@ export default function CurrentApplication({
             { interview: true }
           )
           .then(alert("Invited to interview"))
+          .then(() => window.location.reload(true))
       );
   }
   function setFinal() {
@@ -123,6 +124,7 @@ export default function CurrentApplication({
             )
           )
           .then(alert("Invitation letter sent"))
+          .then(() => window.location.reload(true))
       );
   }
 
@@ -151,6 +153,7 @@ export default function CurrentApplication({
             )
           )
           .then(alert("Rejection letter sent"))
+          .then(() => window.location.reload(true))
       );
   }
 
