@@ -41,13 +41,13 @@ could review and give instant feedback any any application, including making a d
 Clone the project
 
 ```bash
-  git clone https://github.com/SchoolOfCode/w11d5_typescript-hackathon-tommanu.git
+  git clone https://github.com/SchoolOfCode/GCI-AdminFrontEnd
 ```
 
 Go to the project directory
 
 ```bash
-  cd w11d5_typescript-hackathon-tommanu.git
+  cd GCI-AdminFrontEnd
 ```
 
 Install dependencies
