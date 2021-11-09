@@ -95,7 +95,6 @@ export default function CurrentApplication({
             `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
             { interview: true }
           )
-          .then(alert("Invited to interview"))
           .then(() => window.location.reload(true))
       );
   }
@@ -123,7 +122,6 @@ export default function CurrentApplication({
               }
             )
           )
-          .then(alert("Invitation letter sent"))
           .then(() => window.location.reload(true))
       );
   }
@@ -152,7 +150,6 @@ export default function CurrentApplication({
               }
             )
           )
-          .then(alert("Rejection letter sent"))
           .then(() => window.location.reload(true))
       );
   }
