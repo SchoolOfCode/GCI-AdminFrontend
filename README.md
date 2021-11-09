@@ -1,54 +1,65 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
-## 🚀 Quick start
+# School of Code Application Portal
 
-1.  **Create a Gatsby site.**
+Hello! We are Git Commitment Issues, welcome to our project. This project is a web application that serves as an Application Portal for potential new students to apply to join the School of Code!
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+The problem we faced was that the current application process was manual, slow and had a long feedback loop. Feedback we received from our research said that students weren't sure how long the application was, which stage they were current at or when they would be assessed. 
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+We set up an end-to-end process where applicants can go through the entire application within the same portal, being sure of which stage they were currently at, at all times. As a stretch goal, we also set up an Admin portal where staff members
+could review and give instant feedback any any application, including making a decision over whether to invite to interview. 
 
-2.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+## Tech Stack
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+**Client:** React, JavaScript, TailwindCSS, Chakra UI, AWS Amplify, Cypress 
 
-3.  **Open the code and start customizing!**
+**Admin:** React, JavaScript, TailwindCSS, Chakra UI, AWS Amplify
 
-    Your site is now running at http://localhost:8000!
+**Backend:** PostgreSQL, Heroku, Express
 
-    Edit `src/pages/index.js` to see your site update in real-time!
 
-4.  **Learn more**
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  
+## Authors
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [@Tom Morris](https://www.github.com/Tommosaurus)
+- [@Emanuel-David ](https://www.github.com/davearchetype)
+- [@Mitchell Colson ](https://www.github.com/Colsxn)
+- [@Joy Lin](https://www.github.com/lintzuyun)
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  
+## Features
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- Fully auotmated application process in a single platform
+- Live updates
+- Admin portal for assesment and instant feedback
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  
+## Run Locally
 
-## 🚀 Quick start (Gatsby Cloud)
+Clone the project
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+```bash
+  git clone https://github.com/SchoolOfCode/w11d5_typescript-hackathon-tommanu.git
+```
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+Go to the project directory
+
+```bash
+  cd w11d5_typescript-hackathon-tommanu.git
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+  
