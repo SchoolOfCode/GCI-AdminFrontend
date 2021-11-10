@@ -89,14 +89,7 @@ export default function CurrentApplication({
         `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=current_stage`,
         { stage: 6 }
       )
-      .then(
-        axios
-          .patch(
-            `https://gci-backend.herokuapp.com/users/${currentApplication.id}?column=interview`,
-            { interview: true }
-          )
-          .then(() => window.location.reload(true))
-      );
+      .then(() => window.location.reload(true));
   }
   function setFinal() {
     axios
