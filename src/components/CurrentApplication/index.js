@@ -152,7 +152,6 @@ export default function CurrentApplication({
   // function to accept / reject
   let s1 = currentApplication.stage_1 || {};
   let questions = [
-    "Accepted bootcamp requirements",
     "First Name",
     "Last Name",
     "Email",
@@ -181,6 +180,7 @@ export default function CurrentApplication({
     "Religion",
     "Other religion",
     "Current housing status",
+    "Other housing status",
     "Reason for joining School of Code",
     "Found about School of Code via",
   ];
@@ -216,7 +216,7 @@ export default function CurrentApplication({
                   <Td fontWeight="semibold" className="mr-2">
                     {value}:
                   </Td>{" "}
-                  <Td fontWeight="normal">{`${s1[index]}`}</Td>
+                  <Td fontWeight="normal">{`${s1[index + 1]}`}</Td>
                 </Tr>
               );
             })}
